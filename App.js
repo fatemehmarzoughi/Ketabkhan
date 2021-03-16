@@ -1,14 +1,39 @@
+const Realm = require('realm');
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import {Loadingpage} from "./Loadingpage";
+import {MainPage} from "./MainPage"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+//import { super } from '@babel/types';
+
+export default class App extends React.Component{
+  constructor()
+  {
+    super();
+    this.state={
+      loading : true,
+    }
+  }
+
+  componentDidMount(){
+    setTimeout(() => {
+      this.setState({loading : false}) 
+    }, 3000)
+  }
+
+  render(){
+
+    return(
+      <>
+      {this.state.loading ? 
+      (<Loadingpage />)
+       :
+      (<MainPage />)
+      }
+      </>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -17,5 +42,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#FFF',
   },
 });
