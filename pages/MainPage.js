@@ -8,11 +8,11 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer ,  useIsFocused} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SidebarMenu  from "./SidebarMenu.js";
-import { Home } from "./Home.js";
-import { CategoryAll } from "./CategoryAll.js";
-import { Card } from "./Card.js";
-import { Likes } from "./Likes.js";
-import {Product} from './Product.js';
+import { Home } from "./homePage/Home.js";
+import { CategoryAll } from "./categoryAllPage/CategoryAll.js";
+import { Card } from "./cardPage/Card.js";
+import { Likes } from "./likesPage/Likes.js";
+import {Product} from './productPage/Product.js';
 // import console = require('console');
 
 // console.disableYellowBox = false;

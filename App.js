@@ -2,8 +2,8 @@ const Realm = require('realm');
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import {Loadingpage} from "./Loadingpage";
-import {MainPage} from "./MainPage"
+import {Loadingpage} from "./pages/Loadingpage";
+import {MainPage} from "./pages/MainPage"
 
 //import { super } from '@babel/types';
 

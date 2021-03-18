@@ -3,78 +3,76 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
-// import { super } from '@babel/types';
 
-export class Likes extends React.Component{
-    
+export class Card extends React.Component{
     constructor(){
         super();
-        // var dataFiltering = realm
-        //     .objects("Books")
-        //     .filtered("isLike = 1")
         this.state = {
-            products : realm.objects("Books").filtered("isLike = 1"),
-        }
-    }
-    
-    // componentDidMount(){
-        // this.setState({
-        //     products : realm.objects("Books").filtered("isLike = 1")
-        // })   
-        // this.forceUpdate();
-    // }
-    // shouldComponentUpdate(){
-    //     this.forceUpdate();
-    // }
-    // componentWillReceiveProps(){
-    //     this.setState({
-    //         products : realm.objects("Books").filtered("isLike = 1")
-    //     })   
-    // }
-    
-    setCategoryAge = (categoryAge) => {
-        switch(categoryAge)
-        {
-            case 0 : 
-            return "کودک";
-            break; 
-            case 1 : 
-            return "نوجوان";
-            break;
-            case 2 : 
-            return "بزرگسال";
-            break;
+            products : [
+                {
+                    id : 0,
+                    name : "عاشقان هفت دریا",
+                    subject : "عاشقانه",
+                    price : 20000,
+                    pages : 50,
+                    age : "بزرگسال",
+                    numbers : 1,
+
+                },
+                {
+                    id : 1,
+                    name : "راز ثروت",
+                    subject : "علمی",
+                    price : 50000,
+                    pages : 68,
+                    age : "بزرگسال",
+                    numbers : 1,
+
+                },
+                {
+                    id : 2,
+                    name : "هزار داستان",
+                    subject : "داستانی",
+                    price : 70000,
+                    pages : 500,
+                    age : "نوجوان",
+                    numbers : 1,
+
+                }
+            ]
         }
     }
 
-    setCategorySubject = (categorySubject) => {
-        switch(categorySubject)
+    plus = (num , id) => {
+        if(num < 10)
         {
-            case 0 : 
-            return "عاشقانه";
-            break; 
-            case 1 : 
-            return "عارفانه";
-            break;
-            case 2 : 
-            return "رمان";
-            break;
-            case 3 : 
-            return "داستانی";
-            break;
-            case 4 : 
-            return "علمی";
-            break;
+            let FlatListItems = {...this.state.products};
+            // alert(FlatListItems[id].numbers);
+            FlatListItems[id].numbers = num + 1;
+            this.setState({
+                FlatListItems,
+            })  
         }
     }
+
+    minus = (num , id) => {
+        if(num>1)
+        {
+            let FlatListItems = {...this.state.products};
+            FlatListItems[id].numbers = num - 1;
+            this.setState({
+                FlatListItems,
+            })  
+        }
+    }
+
 
     render(){
-        // this.state.products;
         return(
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
                  <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
-                 <Text style={styles.headerText}>مورد علاقه های من</Text>
+                 <Text style={styles.headerText}>سبد کالای من</Text>
                  <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
               </View>
               <FlatList 
@@ -86,25 +84,30 @@ export class Likes extends React.Component{
                         <View style={styles.content}>
                             <View style={styles.rightContent}>
                                 <Text style={styles.explenationB}>{item.name}</Text>
-                                <Text style={styles.explenation}>رده سنی : {this.setCategoryAge(item.categoryAge)}</Text>
-                                <Text style={styles.explenation}>دسته بندی موضوع : {this.setCategorySubject(item.categorySubject)}</Text>
+                                <Text style={styles.explenation}>رده سنی : {item.age}</Text>
+                                <Text style={styles.explenation}>دسته بندی موضوع : {item.subject}</Text>
                                 <Text style={styles.explenation}>تعداد صفحات : {item.pages}</Text>
-                                {/* <Text style={styles.explenationB}>قیمت : {item.price} تومان</Text> */}
+                                <Text style={styles.explenationB}>قیمت : {item.price} تومان</Text>
+                                <View style={styles.numbers}>
+                                   <Text style={styles.explenation}>تعداد :</Text> 
+                                   <Icon style={styles.plusMinus} onPress={() => this.minus(item.numbers , item.id)} name="minus" size={35} color='#333' />
+                                   <Text style={styles.explenationB}>{item.numbers}</Text>
+                                   <Icon style={styles.plusMinus} onPress={() => this.plus(item.numbers , item.id)} name="plus" size={35} color='#333' />
+                                </View>
                             </View>
                             <View style={styles.leftContent}>
-                              <Image style={styles.img} source={require("./images/bookCover1.jpg")} />
+                              <Image style={styles.img} source={require("../../images/bookCover1.jpg")} />
                             </View>
                         </View>
-                        <Text style={styles.buyBtn}>افزودن به سبد خرید</Text>
                         <Text style={styles.btn}>حذف</Text>
                   </View>
               )}
               />
+              <Text style={styles.buyBtn}>ادامه فرایند خرید</Text>
             </SafeAreaView>
         )
     }
 }
-
 
 const styles = StyleSheet.create({
     productsStyle : {
@@ -113,8 +116,9 @@ const styles = StyleSheet.create({
         // alignItems : 'center'
     },
     container : {
-        // paddingBottom : 65,
+        paddingBottom : 65,
         flex : 1,
+        backgroundColor : '#fff'
     },
     // productsStyle : {
     //     marginBottom : 100,
@@ -188,22 +192,20 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         borderStyle : 'solid',
         borderColor : '#E16389',
-        marginTop : 5,
+        marginTop : 15,
         borderRadius : 5,
     },
     plusMinus : {
         color : '#E16389'
     },
     buyBtn : {
-        padding : 10,
-        width : Dimensions.get('window').width - 75,
-        backgroundColor : '#E16389',
+        padding : 15,
+        width : Dimensions.get('window').width,
+        position : 'absolute',
+        bottom : 0,
+        backgroundColor : '#E16398',
         textAlign : 'center',
         color : '#fff',
-        borderWidth : 1,
-        borderStyle : 'solid',
-        borderColor : '#E16389',
-        marginTop : 15,
-        borderRadius : 5,
+        fontSize : 15,
     }
 })

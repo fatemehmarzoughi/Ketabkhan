@@ -41,7 +41,7 @@ export class Loadingpage extends React.Component{
 
     // realm.write(() => {
     //   realm.create('Books' , {
-    //     id : 1,
+    //     id : 4,
     //     name : 'عاشقان هفت دریا',
     //     categoryAge : 2,
     //     categorySubject : 0,

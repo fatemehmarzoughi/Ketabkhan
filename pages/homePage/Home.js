@@ -3,6 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
+import styles from './styleHome.css'
 
 export class Home extends React.Component{
   constructor(props)
@@ -64,10 +65,10 @@ export class Home extends React.Component{
       ],
       FlatListItems : [
         {
-          requireImg : require("./images/bookCover1.jpg"),
+          requireImg : require("../../images/bookCover1.jpg"),
         },
         {
-          requireImg : require("./images/bookCover1.jpg"),
+          requireImg : require("../../images/bookCover1.jpg"),
         }
       ]
     }
@@ -76,7 +77,7 @@ export class Home extends React.Component{
 
   render(){
     return(
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView className={styles.container}>
         <View style={styles.header}>
           <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
           <Text style={styles.title} >کتابخوان</Text>
@@ -88,7 +89,6 @@ export class Home extends React.Component{
              style={styles.searchInput}
              placeholder = "نام کتاب یا نام نویسنده"
             />
-            {/* <Icon style={styles.searchIcon} name="search" size={35} color='#333' /> */}
           </View>
           <View style={styles.popularContainer}>
           <Text style={styles.popularText}>پر مخاطب ترین ها</Text>
@@ -133,83 +133,3 @@ export class Home extends React.Component{
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#fff',
-  },
-  header : {
-    alignItems : 'center',
-    justifyContent : 'space-between',
-    flexDirection : 'row',
-    marginTop : 20,
-    paddingBottom : 10,
-    // position : 'fixed'
-  },
-  title : {
-    marginLeft : 25,
-    fontSize : 20,
-    color : 'black',
-  },
-  menuIcon : {
-    marginRight : 22,
-    color : '#E16389',
-  },
-  bellIcon : {
-    marginLeft : 22,
-    color : '#E16389',
-  },
-  searchContainer : {
-    position : 'relative',
-    margin : 24,
-  },
-  searchInput : {
-    //margin: 24,
-    backgroundColor : "#f5f5f5",
-    borderRadius : 10,
-    padding : 15,
-  },
-  searchIcon : {
-    position : 'absolute',
-    top : 13,
-    left : 7,
-    color : '#E16389'
-  },
-  popularContainer : {
-    margin : 24,
-    marginTop : 0,
-  },
-  popularText : {
-    fontSize : 16,
-  },
-  popularProducts : {
-    // flexDirection : 'row-reverse',
-    // direction : 'ltr'
-    // marginRight : 0,
-  },
-  popularProduct : {
-    margin : 20,
-    marginRight : 0,
-  },
-  popularImgProduct : {
-    // height : Dimensions.get('window').height / 2.8,
-    // width : 150,
-  },
-  categoryView : {
-    margin : 30,
-    alignItems : 'center',
-    justifyContent : 'center',
-    marginRight : 0,
-  },
-  categoryIcon : {
-    margin : 0,
-    padding : 5,
-    color : "#E16389",
-  },
-  categoryContainer : {
-    marginTop : 0,
-    marginBottom: 10,
-    flexDirection : 'row-reverse'
-  }
-
-});

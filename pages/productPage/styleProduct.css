@@ -1,0 +1,115 @@
+.container {
+    background-color : #fff;
+    height : 100%;
+}
+.header  {
+    background-color : #FAA5C2;
+    padding-bottom : 30;
+}
+.backGroundBackBtn  {
+    background-color : #fff;
+    width : 30;
+    height : 30;
+    margin-top  : 30;
+    margin-left : 25;
+    align-items : center;
+    justify-content : center;
+    border-radius : 5px;
+}
+.img  {
+    margin-left : auto;
+    margin-right : auto;
+    width : 155;
+    height : 230;
+    border-radius : 10px;
+}
+.likeBtn  {
+    width : 70;
+    background-color : #fff;
+    height : 70;
+    align-items : center;
+    justify-content : center;
+    border-radius : 50px;
+    position : absolute;
+    border-color : #FAA5C2;
+    border-style : solid;
+    border-width : 7px;
+    top : 265;
+    left : 10;
+}
+.bookName  {
+    font-size : 24;
+    color : black;
+    margin-top  : 20;
+    margin-right : 10;
+    text-align :right
+}
+.bookWriter  {
+    color : #7D7D81;
+    margin-right : 10;
+    text-align : right;
+}
+.bookDetails {
+    flex-direction : row;
+    align-items : center;
+    justify-content : space-between;
+    margin-right : 10;
+    margin-left : 90;
+    margin-top  : 10;
+}
+.details  {
+    font-size : 16;
+    color : #E16389
+}
+.detailsCategory  {
+    margin-right : 10;
+    font-size : 15;
+    margin-top  : 10;
+}
+.tabBar  {
+    flex-direction : row-reverse;
+    justify-content : flex-start;
+    margin-left : 5;
+    margin-right : 10;
+    margin-top  : 13;
+    font-size : 16;
+}
+.tabsContainer  {
+    /* width : 2*Dimensions.get('window').width + 20; */
+    /* width: calc(100% - 20px) ; */
+    width: 100%;
+    flex-direction : row;
+    margin-bottom : 60;
+}
+.tabContent  {
+    /* width : Dimensions.get('window').width; */
+    width: 100%;
+    align-items : flex-end;
+    
+}
+.underLine  {
+    border-top-width: 2px;
+    border-top-color : black;
+    border-style : solid;
+    width : 30;
+    height : 0;
+    margin-left : auto;
+    
+}
+.content  {
+    padding-right : 13;
+    padding-left : 13;
+    padding-top : 10;
+    padding-bottom : 20;
+}
+.btn {
+    padding : 15px;
+    /* width : Dimensions.get('window').width; */
+    width : 100%;
+    position : absolute;
+    bottom : 0;
+    background-color :#E16398;
+    text-align : center;
+    color : #fff;
+    font-size : 15;
+}

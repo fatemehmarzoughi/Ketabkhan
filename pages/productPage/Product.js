@@ -3,10 +3,10 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , useParams , Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
-import Back from './back.js'
+import Back from '../back.js'
 import Realm from 'realm';
-// import { TabView, SceneMap } from 'react-native-tab-view';
-// let index = 0;
+import styles from './styleProduct.css'
+
 export class Product extends React.Component{
     constructor(props){
         realm = new Realm({
@@ -152,8 +152,6 @@ export class Product extends React.Component{
         // this.state.selectedProduct.numbers = this.state.products[this.state.selectedId].numbers;
         this.state.selectedProduct.writer = this.state.products[this.state.selectedId].writer;
 
-
-
          return(
              <View style={styles.container}>
                 <ScrollView>
@@ -161,7 +159,7 @@ export class Product extends React.Component{
                     <View style={styles.backGroundBackBtn}>
                        <Back  style={styles.backGroundBackBtn} customClick={() => this.props.navigation.navigate(page)} />
                     </View>
-                    <Image style={styles.img} source={require('./images/bookCover1.jpg')} />
+                    <Image style={styles.img} source={require('../../images/bookCover1.jpg')} />
                  </View>
                  <View style={styles.likeBtn}>
                      <Icon onPress={() => this.setLike()} name="heart" size={35} color='#333' />
@@ -197,126 +195,3 @@ export class Product extends React.Component{
          )
     }
 }
-
-const styles = StyleSheet.create({
-    container : {
-        backgroundColor : '#fff',
-    },
-    header : {
-        backgroundColor : '#FAA5C2',
-        paddingBottom : 30,
-        // position : 'relative',
-    },
-    backGroundBackBtn : {
-        backgroundColor : "#fff",
-        width : 30,
-        height : 30,
-        marginTop : 30,
-        marginLeft : 25,
-        alignItems : 'center',
-        justifyContent : 'center',
-        borderRadius : 5,
-    },
-    img : {
-        marginLeft : 'auto',
-        marginRight : 'auto',
-        width : 155,
-        height : 230,
-        borderRadius : 10,
-    },
-    likeBtn : {
-        width : 70,
-        backgroundColor : '#fff',
-        height : 70,
-        alignItems : 'center',
-        justifyContent : 'center',
-        borderRadius : 50,
-        position : 'absolute',
-        borderColor : '#FAA5C2',
-        borderStyle : 'solid',
-        borderWidth : 7,
-        top : 265,
-        left : 10,
-    },
-    bookName : {
-        // fontWeight : 'bold',
-        fontSize : 24,
-        color : 'black',
-        marginTop : 20,
-        marginRight : 10,
-        textAlign : 'right'
-    },
-    bookWriter : {
-        color : '#7D7D81',
-        marginRight : 10,
-        textAlign : 'right'
-    },
-    bookDetails : {
-        flexDirection : 'row',
-        alignItems : 'center',
-        justifyContent : 'space-between',
-        marginRight : 10,
-        marginLeft : 90,
-        marginTop : 10,
-    },
-    details : {
-        fontSize : 16,
-        color : '#E16389'
-    },
-    detailsCategory : {
-        marginRight : 10,
-        fontSize : 15,
-        marginTop : 10,
-    },
-    tabBar : {
-        flexDirection : 'row-reverse',
-        // textAlign : 'right',
-        justifyContent : 'flex-start',
-        marginLeft : 5,
-        marginRight : 10,
-        marginTop : 13,
-        fontSize : 16,
-    },
-    tabsContainer : {
-        width : 2*Dimensions.get('window').width + 20,
-        flexDirection : 'row',
-        // transform : [{translateX : 0}],
-        // alignItems : 'flex-end',
-        // marginLeft : 'auto'
-        marginBottom : 60,
-    },
-    tabContent : {
-        width : Dimensions.get('window').width,
-        alignItems : 'flex-end',
-        
-    },
-    underLine : {
-        borderTopWidth : 2,
-        borderTopColor : 'black',
-        borderStyle : 'solid',
-        width : 30,
-        height : 0,
-        // justifyContent : 'center',
-        // backgroundColor : 'red',
-        // alignItems : 'flex-end',
-        // textAlign : 'right',
-        marginLeft : 'auto',
-        
-    },
-    content : {
-        paddingRight : 13,
-        paddingLeft : 13,
-        paddingTop : 10,
-        paddingBottom : 20,
-    },
-    btn : {
-        padding : 15,
-        width : Dimensions.get('window').width,
-        position : 'absolute',
-        bottom : 0,
-        backgroundColor : '#E16398',
-        textAlign : 'center',
-        color : '#fff',
-        fontSize : 15,
-    }
-})
