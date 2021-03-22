@@ -6,23 +6,22 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import styles from '../styleCategory.css'
 
-export class CategoryAll extends React.Component{
+export class CategoryAgeTeenage extends React.Component{
     constructor(){
-      super();
-      this.state = {
-        // ProductScreen : false,
-        thisPageName : 'CategoryAll',
-        // selectedId : 0 ,
-        products : realm.objects("Books"),
-        showingProducts : [],
-      }
-      this.state.showingProducts = [...this.state.products];
-      realm = new Realm({
-        path : 'Database.realm',
-      })
+        super();
+        this.state = {
+            ProductScreen : false,
+            thisPageName : 'CategoryAll',
+            selectedId : 0 ,
+            products : realm.objects("Books"),
+            showingProducts : [],
+          }
+        this.state.showingProducts = [...this.state.products];
+        realm = new Realm({
+          path : 'Database.realm',
+        })
     }
 
-    //for searching filtering
     contain = (item, query) => {
       const {name , writer} = item;
       if(name.includes(query) || writer.includes(query))
@@ -45,8 +44,8 @@ export class CategoryAll extends React.Component{
         return(
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
-                <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-                <Text style={styles.title} >همه دسته ها</Text>
+                <Icon onPress={() => this.openCloseSearchBar()} style={styles.bellIcon} name="bell" size={35} color='#333' />
+                <Text style={styles.title} >نوجوان</Text>
                 <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
               </View>
               <View style={styles.searchContainer}>
@@ -64,7 +63,7 @@ export class CategoryAll extends React.Component{
                showsVerticalScrollIndicator={false}
                renderItem={({item}) => (
                  <TouchableWithoutFeedback 
-                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategoryAll'})}
+                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategoryAgeTeenage'})}
                   style={[styles.popularProduct]}>
                    <View style={styles.popularProduct}>
                      <Image style={styles.popularImgProduct} source={require('../../images/bookCover1.jpg')} />

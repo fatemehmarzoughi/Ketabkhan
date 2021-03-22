@@ -123,10 +123,10 @@ export class Product extends React.Component{
     render(){
         // this.forceUpdate()
          //getting selected product's id from the previouse page 
-         const id = this.props.navigation.dangerouslyGetState().routes[2].params.id;
          console.log(this.props.navigation.dangerouslyGetState().routes);
+         const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
          //finding out that where this page is comming from
-         const page = this.props.navigation.dangerouslyGetState().routes[2].params.page;
+         const page = this.props.navigation.dangerouslyGetState().routes[8].params.page;
 
          //finding the pruduct's features
         let length = this.state.products.length;

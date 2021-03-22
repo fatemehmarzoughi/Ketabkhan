@@ -68,10 +68,10 @@ function SidebarMenu(props){
               focused={getActiveRouteState(
                 props.state.routes,
                 props.state.index,
-                'Child'
+                'CategoryAgeChildren'
               )}
               onPress={() => {
-                props.navigation.navigate('Child');
+                props.navigation.navigate('CategoryAgeChildren');
               }}
           >کودک</Text>
           <Text
@@ -79,10 +79,11 @@ function SidebarMenu(props){
               focused={getActiveRouteState(
                 props.state.routes,
                 props.state.index,
-                'Teenage'
+                'CategoryAgeTeenage'
               )}
               onPress={() => {
-                props.navigation.navigate('Teenage');
+                props.navigation.navigate('CategoryAgeTeenage');
+                //props.categoryName('teenage');
               }}
           >نوجوان</Text>
           <Text
@@ -90,10 +91,10 @@ function SidebarMenu(props){
               focused={getActiveRouteState(
                 props.state.routes,
                 props.state.index,
-                'Adult'
+                'CategoryAgeAdult'
               )}
               onPress={() => {
-                props.navigation.navigate('Adult');
+                props.navigation.navigate('CategoryAgeAdult');
               }}
           >بزرگسال</Text>
         </Collapsible>
@@ -107,33 +108,21 @@ function SidebarMenu(props){
               focused={getActiveRouteState(
                 props.state.routes,
                 props.state.index,
-                'Lovely'
+                'CategorySubjectLovely'
               )}
               onPress={() => {
-                props.navigation.navigate('Lovely');
+                props.navigation.navigate('CategorySubjectLovely');
               }}
-          >عاشقانه</Text>
+          >عاشقانه-عارفانه </Text>
           <Text
             style={styles.subItems2}
             focused={getActiveRouteState(
               props.state.routes,
               props.state.index,
-              'Arefene'
+              'CategorySubjectRoman'
             )}
             onPress={() => {
-              props.navigation.navigate('Arefane');
-            }}
-           >عارفانه</Text>
-          <Text
-            style={styles.subItems2}
-            label="Roman"
-            focused={getActiveRouteState(
-              props.state.routes,
-              props.state.index,
-              'Roman'
-            )}
-            onPress={() => {
-              props.navigation.navigate('Roman');
+              props.navigation.navigate('CategorySubjectRoman');
             }}
            >رمان</Text>
           <Text
@@ -141,21 +130,10 @@ function SidebarMenu(props){
             focused={getActiveRouteState(
               props.state.routes,
               props.state.index,
-              'Story'
+              'CategorySubjectScience'
             )}
             onPress={() => {
-              props.navigation.navigate('Story');
-            }}
-          >داستانی</Text>
-          <Text
-            style={styles.subItems2}
-            focused={getActiveRouteState(
-              props.state.routes,
-              props.state.index,
-              'Sience'
-            )}
-            onPress={() => {
-              props.navigation.navigate('Sience');
+              props.navigation.navigate('CategorySubjectScience');
             }}
           >علمی</Text>
         </Collapsible>

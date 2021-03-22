@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import styles from '../styleCategory.css'
 
-export class CategoryAll extends React.Component{
+export class CategorySubjectLovely extends React.Component{
     constructor(){
       super();
       this.state = {
@@ -46,7 +46,7 @@ export class CategoryAll extends React.Component{
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
                 <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-                <Text style={styles.title} >همه دسته ها</Text>
+                <Text style={styles.title} >عاشقانه-عارفانه</Text>
                 <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
               </View>
               <View style={styles.searchContainer}>
@@ -64,7 +64,7 @@ export class CategoryAll extends React.Component{
                showsVerticalScrollIndicator={false}
                renderItem={({item}) => (
                  <TouchableWithoutFeedback 
-                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategoryAll'})}
+                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategorySubjectLovely'})}
                   style={[styles.popularProduct]}>
                    <View style={styles.popularProduct}>
                      <Image style={styles.popularImgProduct} source={require('../../images/bookCover1.jpg')} />

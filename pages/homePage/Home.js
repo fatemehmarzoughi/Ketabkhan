@@ -69,7 +69,20 @@ export class Home extends React.Component{
         },
         {
           requireImg : require("../../images/bookCover1.jpg"),
-        }
+        },
+        {
+          requireImg : require("../../images/bookCover1.jpg"),
+        },
+        {
+          requireImg : require("../../images/bookCover1.jpg"),
+        },
+        {
+          requireImg : require("../../images/bookCover1.jpg"),
+        },
+        {
+          requireImg : require("../../images/bookCover1.jpg"),
+        },
+        
       ]
     }
   }
@@ -91,23 +104,74 @@ export class Home extends React.Component{
             />
           </View>
           <View style={styles.popularContainer}>
-          <Text style={styles.popularText}>پر مخاطب ترین ها</Text>
-          <SafeAreaView>
-            <FlatList 
-             horizontal
-             keyExtractor={(item, index) => index.toString()}
-             data={this.state.FlatListItems}
-             style={styles.popularProducts}
-             showsHorizontalScrollIndicator={false}
-             renderItem={({item}) => (
-               <View style={styles.popularProduct}>
-                 <Image style={styles.popularImgProduct} source={item.requireImg} />
-               </View>
-             )}
-            />
-          </SafeAreaView>
-        </View>
+            <Text style={styles.popularText}>علمی</Text>
+            <SafeAreaView>
+              <FlatList 
+               horizontal
+               keyExtractor={(item, index) => index.toString()}
+               data={this.state.FlatListItems}
+               style={styles.popularProducts}
+               showsHorizontalScrollIndicator={false}
+               renderItem={({item}) => (
+                 <View style={styles.popularProduct}>
+                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                 </View>
+               )}
+              />
+            </SafeAreaView>
+          </View>
           <View style={styles.popularContainer}>
+            <Text style={styles.popularText}>فلسفی</Text>
+            <SafeAreaView>
+              <FlatList 
+               horizontal
+               keyExtractor={(item, index) => index.toString()}
+               data={this.state.FlatListItems}
+               style={styles.popularProducts}
+               showsHorizontalScrollIndicator={false}
+               renderItem={({item}) => (
+                 <View style={styles.popularProduct}>
+                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                 </View>
+               )}
+              />
+            </SafeAreaView>
+          </View>
+          <View style={styles.popularContainer}>
+            <Text style={styles.popularText}>درسی</Text>
+            <SafeAreaView>
+              <FlatList 
+               horizontal
+               keyExtractor={(item, index) => index.toString()}
+               data={this.state.FlatListItems}
+               style={styles.popularProducts}
+               showsHorizontalScrollIndicator={false}
+               renderItem={({item}) => (
+                 <View style={styles.popularProduct}>
+                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                 </View>
+               )}
+              />
+            </SafeAreaView>
+          </View>
+          <View style={styles.popularContainer}>
+            <Text style={styles.popularText}>عاشقانه</Text>
+            <SafeAreaView>
+              <FlatList 
+               horizontal
+               keyExtractor={(item, index) => index.toString()}
+               data={this.state.FlatListItems}
+               style={styles.popularProducts}
+               showsHorizontalScrollIndicator={false}
+               renderItem={({item}) => (
+                 <View style={styles.popularProduct}>
+                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                 </View>
+               )}
+              />
+            </SafeAreaView>
+          </View>
+          {/* <View style={styles.popularContainer}>
             <Text style={styles.popularText}>دسته بندی ها</Text>
             <ScrollView style={styles.categoryContainer} horizontal>
             <View style={styles.categoryView}>
@@ -127,7 +191,7 @@ export class Home extends React.Component{
               <Text>علمی</Text>
             </View>
           </ScrollView>
-          </View>
+          </View> */}
         </ScrollView>
       </SafeAreaView>
     )

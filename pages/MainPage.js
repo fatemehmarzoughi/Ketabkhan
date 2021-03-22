@@ -10,6 +10,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import SidebarMenu  from "./SidebarMenu.js";
 import { Home } from "./homePage/Home.js";
 import { CategoryAll } from "./categoryAllPage/CategoryAll.js";
+import { CategoryAgeChildren } from "./categoryAgeChildren/CategoryAgeChildren.js";
+import { CategoryAgeAdult } from "./categoryAgeAdult/CategoryAgeAdult.js";
+import { CategoryAgeTeenage } from "./categoryAgeTeenage/CategoryAgeTeenage.js";
+import { CategorySubjectLovely } from "./categorySubjectLovely/CategorySubjectLovely.js";
+import { CategorySubjectRoman } from "./categorySubjectRoman/CategorySubjectRoman.js";
+import { CategorySubjectScience } from "./categorySubjectScience/CategorySubjectScience.js";
 import { Card } from "./cardPage/Card.js";
 import { Likes } from "./likesPage/Likes.js";
 import {Product} from './productPage/Product.js';
@@ -32,6 +38,24 @@ export class MainPage extends React.Component{
     }
     const CategoryAllScreen = ({navigation}) => {
       return (<CategoryAll navigation={navigation} />)
+    }
+    const CategoryAgeChildrenScreen = ({navigation}) => {
+      return (<CategoryAgeChildren navigation={navigation} />)
+    }
+    const CategoryAgeAdultScreen = ({navigation}) => {
+      return (<CategoryAgeAdult navigation={navigation} />)
+    }
+    const CategoryAgeTeenageScreen = ({navigation}) => {
+      return (<CategoryAgeTeenage navigation={navigation} />)
+    }
+    const CategorySubjectRomanScreen = ({navigation}) => {
+      return (<CategorySubjectRoman navigation={navigation} />)
+    }
+    const CategorySubjectLovelyScreen = ({navigation}) => {
+      return (<CategorySubjectLovely navigation={navigation} />)
+    }
+    const CategorySubjectScienceScreen = ({navigation}) => {
+      return (<CategorySubjectScience navigation={navigation} />)
     }
     // const CardScreen = ({navigation}) => {
     //   return (<Card navigation={navigation} />)
@@ -57,11 +81,20 @@ export class MainPage extends React.Component{
           }}
           >
           <Drawer.Screen name="Home" component={HomeScreen}/>
+
           <Drawer.Screen name="CategoryAll" component={CategoryAllScreen} />
+
+          <Drawer.Screen name="CategoryAgeChildren" component={CategoryAgeChildrenScreen} />
+          <Drawer.Screen name="CategoryAgeAdult" component={CategoryAgeAdultScreen} />
+          <Drawer.Screen name="CategoryAgeTeenage" component={CategoryAgeTeenageScreen} />
+
+          <Drawer.Screen name="CategorySubjectLovely" component={CategorySubjectLovelyScreen} />
+          <Drawer.Screen name="CategorySubjectRoman" component={CategorySubjectRomanScreen} />
+          <Drawer.Screen name="CategorySubjectScience" component={CategorySubjectScienceScreen} />
+
           <Drawer.Screen key="Product" name="Product" component={ProductScreen}  />
-          <Drawer.Screen 
-            
-            name="Likes" component={LikesScreen} />
+
+          <Drawer.Screen name="Likes" component={LikesScreen} />
           {/* <Drawer.Screen name="Card" component={CardScreen} /> */}
         </Drawer.Navigator>
       </NavigationContainer>
