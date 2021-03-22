@@ -27,7 +27,8 @@ function SidebarMenu(props){
     <ScrollView style={styles.drawerContent}>
       <Icon onPress={() => props.navigation.closeDrawer()} style={styles.backIcon} name="chevron-right" size={45} color='#333' />
       <View style={styles.aboveContent}>
-        <Icon style={styles.appIcon} name="trophy" size={35} color='#333' />
+        {/* <Icon style={styles.appIcon} name="trophy" size={35} color='#333' /> */}
+        <Image style={[{width : 70 , height : 70 , marginBottom : 10}]} source={require('../images/icon.png')} />
         <Text style={styles.title}>کتابخوان</Text>
         <Text style={styles.subtitle}>کتابی دیگر، دنیایی دیگر</Text>
       </View>
