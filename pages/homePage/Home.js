@@ -10,59 +10,6 @@ export class Home extends React.Component{
   {
     super(props);
     this.state = {
-      products : [
-        {
-            id : 0,
-            name : "عاشقان هفت دریا",
-            subject : "عاشقانه",
-            price : 20000,
-            pages : 50,
-            age : "بزرگسال",
-            numbers : 1,
-            writer : "Jozeph"
-
-        },
-        {
-            id : 1,
-            name : "راز ثروت",
-            subject : "علمی",
-            price : 50000,
-            pages : 68,
-            age : "بزرگسال",
-            numbers : 1,
-            writer : "Dr.H"
-        },
-        {
-            id : 2,
-            name : "هزار داستان",
-            subject : "داستانی",
-            price : 70000,
-            pages : 500,
-            age : "نوجوان",
-            numbers : 1,
-            writer : "مولوی"
-        },
-        {
-            id : 3,
-            name : "هزار و یک شب",
-            subject : "داستانی",
-            price : 70000,
-            pages : 500,
-            age : "بزرگسال",
-            numbers : 1,
-            writer : "دهخدا"
-        },
-        {
-            id : 4,
-            name : "هزار و یک شب",
-            subject : "داستانی",
-            price : 70000,
-            pages : 500,
-            age : "بزرگسال",
-            numbers : 1,
-            writer : "دهخدا"
-        }
-      ],
       FlatListItems : [
         {
           requireImg : require("../../images/bookCover1.jpg"),
@@ -82,11 +29,9 @@ export class Home extends React.Component{
         {
           requireImg : require("../../images/bookCover1.jpg"),
         },
-        
       ]
     }
   }
-
 
   render(){
     return(

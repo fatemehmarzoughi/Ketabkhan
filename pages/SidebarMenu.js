@@ -125,7 +125,7 @@ function SidebarMenu(props){
             onPress={() => {
               props.navigation.navigate('CategorySubjectRoman');
             }}
-           >رمان</Text>
+           >رمان-داستانی</Text>
           <Text
             style={styles.subItems2}
             focused={getActiveRouteState(

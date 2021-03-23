@@ -5,8 +5,6 @@ import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , TouchableW
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import styles from '../styleCategory.css'
-// import { Product } from './Product.js';
-// import Animated from 'react-native-reanimated';
 
 export class CategoryAgeAdult extends React.Component{
     constructor(){
@@ -15,10 +13,9 @@ export class CategoryAgeAdult extends React.Component{
             ProductScreen : false,
             thisPageName : 'CategoryAll',
             selectedId : 0 ,
-            products : realm.objects("Books"),
+            //filtering data for adult category
+            products : realm.objects("Books").filtered('categoryAge = 2'),
             showingProducts : [],
-            // searchBarPosition : new Animated.Value(-85),
-            // openOrCloseSearchBar : 0,
           }
         this.state.showingProducts = [...this.state.products];
         realm = new Realm({
@@ -58,7 +55,6 @@ export class CategoryAgeAdult extends React.Component{
                  placeholder = "نام کتاب یا نام نویسنده"
                  onChangeText = {(text) => this.handleChange(text)}
                 />
-                {/* <Icon style={styles.searchIcon} name="search" size={35} color='#333' /> */}
               </View>
               <FlatList 
                data={this.state.showingProducts}

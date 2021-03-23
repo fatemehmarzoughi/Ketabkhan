@@ -13,7 +13,7 @@ export class CategorySubjectRoman extends React.Component{
         // ProductScreen : false,
         thisPageName : 'CategoryAll',
         // selectedId : 0 ,
-        products : realm.objects("Books"),
+        products : realm.objects("Books").filtered('categorySubject = 1'),
         showingProducts : [],
       }
       this.state.showingProducts = [...this.state.products];
@@ -46,7 +46,7 @@ export class CategorySubjectRoman extends React.Component{
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
                 <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-                <Text style={styles.title} >رمان</Text>
+                <Text style={styles.title} >رمان-داستانی</Text>
                 <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
               </View>
               <View style={styles.searchContainer}>

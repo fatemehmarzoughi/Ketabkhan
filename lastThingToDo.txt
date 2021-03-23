@@ -4,8 +4,7 @@
 
 3)compelete home page => use your own category for home page parts
 
-4)compelete category pages => 1-age   
-                              2-subject
+4)Store the image url in database
 
 5)solve the problem for likes in the product page
 

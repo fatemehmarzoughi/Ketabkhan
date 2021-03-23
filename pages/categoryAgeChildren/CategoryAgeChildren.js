@@ -13,10 +13,8 @@ export class CategoryAgeChildren extends React.Component{
             ProductScreen : false,
             thisPageName : 'CategoryAll',
             selectedId : 0 ,
-            products : realm.objects("Books"),
+            products : realm.objects("Books").filtered('categoryAge = 0'),
             showingProducts : [],
-            // searchBarPosition : new Animated.Value(-85),
-            // openOrCloseSearchBar : 0,
           }
         this.state.showingProducts = [...this.state.products];
         realm = new Realm({

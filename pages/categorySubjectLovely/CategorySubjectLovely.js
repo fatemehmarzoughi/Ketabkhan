@@ -13,7 +13,7 @@ export class CategorySubjectLovely extends React.Component{
         // ProductScreen : false,
         thisPageName : 'CategoryAll',
         // selectedId : 0 ,
-        products : realm.objects("Books"),
+        products : realm.objects("Books").filtered('categorySubject = 0'),
         showingProducts : [],
       }
       this.state.showingProducts = [...this.state.products];

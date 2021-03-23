@@ -13,7 +13,7 @@ export class CategorySubjectScience extends React.Component{
         // ProductScreen : false,
         thisPageName : 'CategoryAll',
         // selectedId : 0 ,
-        products : realm.objects("Books"),
+        products : realm.objects("Books").filtered('categorySubject = 2'),
         showingProducts : [],
       }
       this.state.showingProducts = [...this.state.products];

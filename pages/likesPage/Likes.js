@@ -1,20 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView ,FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
+import { TextInput,  ScrollView } from 'react-native-gesture-handler';
 // import { super } from '@babel/types';
+import { NavigationContainer ,  useIsFocused} from '@react-navigation/native';
 import styles from './styleLikes.css'
+import Realm from 'realm';
+
 
 export class Likes extends React.Component{
     
     constructor(){
         super();
-        // var dataFiltering = realm
-        //     .objects("Books")
-        //     .filtered("isLike = 1")
+        realm = new Realm({
+            path : 'Database.realm',
+        });
         this.state = {
-            products : realm.objects("Books").filtered("isLike = 1"),
+            products : realm.objects("Books").filtered('isLike = 1'),
         }
     }
     
@@ -37,25 +40,26 @@ export class Likes extends React.Component{
         switch(categorySubject)
         {
             case 0 : 
-            return "عاشقانه";
-            break; 
+            return "عاشقانه-عارفانه";
+            break;
             case 1 : 
-            return "عارفانه";
+            return "داستانی-رمان";
             break;
             case 2 : 
-            return "رمان";
-            break;
-            case 3 : 
-            return "داستانی";
-            break;
-            case 4 : 
             return "علمی";
             break;
         }
     }
 
+    dislike = (selectedId) => {
+        let likeObjectUpdate = realm.objects("Books");
+        realm.write(() => {
+            likeObjectUpdate[selectedId].isLike = 0;
+        })
+        this.props.navigation.navigate("Home")
+    }
+
     render(){
-        // this.state.products;
         return(
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
@@ -64,25 +68,26 @@ export class Likes extends React.Component{
                  <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
               </View>
               <FlatList 
+               data={this.state.products}
                style={styles.productsStyle}
                keyExtractor={(item, index) => index.toString()}
-               data={this.state.products}
                renderItem = {({item}) => (
-                  <View style={styles.productBox}>
-                        <View style={styles.content}>
-                            <View style={styles.rightContent}>
-                                <Text style={styles.explenationB}>{item.name}</Text>
+                  <View style={[styles.productBox]}>
+                        <View style={[styles.content]}>
+                            <View style={[styles.rightContent]}>
+                                <Text style={[styles.explenationB]}>{item.name}</Text>
                                 <Text style={styles.explenation}>رده سنی : {this.setCategoryAge(item.categoryAge)}</Text>
                                 <Text style={styles.explenation}>دسته بندی موضوع : {this.setCategorySubject(item.categorySubject)}</Text>
                                 <Text style={styles.explenation}>تعداد صفحات : {item.pages}</Text>
+                                <Text style={styles.explenation}>نویسنده : {item.writer}</Text>
                                 {/* <Text style={styles.explenationB}>قیمت : {item.price} تومان</Text> */}
                             </View>
-                            <View style={styles.leftContent}>
-                              <Image style={styles.img} source={require("../../images/bookCover1.jpg")} />
+                            <View style={[styles.leftContent]}>
+                              <Image style={[styles.img]} source={require('../../images/bookCover1.jpg')} />
                             </View>
                         </View>
-                        <Text style={styles.buyBtn}>افزودن به سبد خرید</Text>
-                        <Text style={styles.btn}>حذف</Text>
+                        {/* <Text style={[styles.buyBtn]}>افزودن به سبد خرید</Text> */}
+                        <Text onPress={() => this.dislike(item.id)} style={styles.btn}>حذف</Text>
                   </View>
               )}
               />

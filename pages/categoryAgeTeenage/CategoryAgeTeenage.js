@@ -13,7 +13,7 @@ export class CategoryAgeTeenage extends React.Component{
             ProductScreen : false,
             thisPageName : 'CategoryAll',
             selectedId : 0 ,
-            products : realm.objects("Books"),
+            products : realm.objects("Books").filtered('categoryAge = 1'),
             showingProducts : [],
           }
         this.state.showingProducts = [...this.state.products];

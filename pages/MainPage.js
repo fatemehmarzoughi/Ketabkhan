@@ -17,7 +17,7 @@ import { CategorySubjectLovely } from "./categorySubjectLovely/CategorySubjectLo
 import { CategorySubjectRoman } from "./categorySubjectRoman/CategorySubjectRoman.js";
 import { CategorySubjectScience } from "./categorySubjectScience/CategorySubjectScience.js";
 import { Card } from "./cardPage/Card.js";
-import { Likes } from "./likesPage/Likes.js";
+import { Likes } from "./likesPage/Likes";
 import {Product} from './productPage/Product.js';
 // import console = require('console');
 
