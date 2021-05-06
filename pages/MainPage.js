@@ -16,12 +16,10 @@ import { CategoryAgeTeenage } from "./categoryAgeTeenage/CategoryAgeTeenage.js";
 import { CategorySubjectLovely } from "./categorySubjectLovely/CategorySubjectLovely.js";
 import { CategorySubjectRoman } from "./categorySubjectRoman/CategorySubjectRoman.js";
 import { CategorySubjectScience } from "./categorySubjectScience/CategorySubjectScience.js";
-import { Card } from "./cardPage/Card.js";
 import { Likes } from "./likesPage/Likes";
 import {Product} from './productPage/Product.js';
-// import console = require('console');
+import {PDFViewPage} from './productPage/PDFViewPage.js';
 
-// console.disableYellowBox = false;
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 export class MainPage extends React.Component{
@@ -57,16 +55,16 @@ export class MainPage extends React.Component{
     const CategorySubjectScienceScreen = ({navigation}) => {
       return (<CategorySubjectScience navigation={navigation} />)
     }
-    // const CardScreen = ({navigation}) => {
-    //   return (<Card navigation={navigation} />)
-    // }
     const LikesScreen = ({navigation}) => {
       return (<Likes navigation={navigation} isFocused={useIsFocused()} />)
     }
     const ProductScreen = ({navigation}) => {
       return (<Product navigation={navigation} isFocused={useIsFocused()} />)
     }
-    // const isFocused = useIsFocused();
+
+    const PDFViewPageScreen = ({navigation}) => {
+      return (<PDFViewPage navigation={navigation} />)
+    }
     return(
       <NavigationContainer>
         <Drawer.Navigator initialRouteName="Home" 
@@ -83,19 +81,18 @@ export class MainPage extends React.Component{
           <Drawer.Screen name="Home" component={HomeScreen}/>
 
           <Drawer.Screen name="CategoryAll" component={CategoryAllScreen} />
-
           <Drawer.Screen name="CategoryAgeChildren" component={CategoryAgeChildrenScreen} />
           <Drawer.Screen name="CategoryAgeAdult" component={CategoryAgeAdultScreen} />
           <Drawer.Screen name="CategoryAgeTeenage" component={CategoryAgeTeenageScreen} />
-
           <Drawer.Screen name="CategorySubjectLovely" component={CategorySubjectLovelyScreen} />
           <Drawer.Screen name="CategorySubjectRoman" component={CategorySubjectRomanScreen} />
           <Drawer.Screen name="CategorySubjectScience" component={CategorySubjectScienceScreen} />
 
           <Drawer.Screen key="Product" name="Product" component={ProductScreen}  />
+          <Drawer.Screen name="PDFViewPage" component={PDFViewPageScreen} />
 
           <Drawer.Screen name="Likes" component={LikesScreen} />
-          {/* <Drawer.Screen name="Card" component={CardScreen} /> */}
+
         </Drawer.Navigator>
       </NavigationContainer>
     )

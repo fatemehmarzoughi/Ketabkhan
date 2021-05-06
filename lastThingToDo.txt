@@ -1,10 +1,9 @@
+1)solve the problem for likes in the product page
 
-1) install the react-native-view-pdf 
+2)activate the bell icon
 
-2)make the configuration changes => https://www.npmjs.com/package/react-native-view-pdf 
+3)activate the home page search input
 
-3)Store the image url in database
+4)remove the extra folders in pages
 
-4)compelete home page => use your own category for home page parts
-
-5)solve the problem for likes in the product page
+5)add at least 50 products to the db

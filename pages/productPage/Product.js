@@ -6,7 +6,8 @@ import Icon2 from 'react-native-vector-icons/Ionicons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import Back from '../back.js'
 import Realm from 'realm';
-import styles from './styleProduct.css'
+import styles from './styleProduct.css';
+
 
 
 export class Product extends React.Component{
@@ -103,7 +104,7 @@ export class Product extends React.Component{
             path : 'Database.realm',
         });
         //getting selected product's id from the previouse page 
-        console.log(this.props.navigation.dangerouslyGetState().routes);
+        // console.log(this.props.navigation.dangerouslyGetState().routes);
         const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
 
         //finding out that where this page is comming from
@@ -133,6 +134,7 @@ export class Product extends React.Component{
         let selectedSubject = this.state.products[selectedId].categorySubject;
         let selectedPages = this.state.products[selectedId].pages;
         let selectedImagePath =this.state.products[selectedId].imagePath;
+        let selectedPdfUri = this.state.products[selectedId].pdfPath;
         
         const setLike = () => {
             let selectedIsLike = this.state.products[selectedId].isLike;
@@ -200,7 +202,7 @@ export class Product extends React.Component{
                      </View>
                  </Animated.View>
                 </ScrollView>
-                <Text style={styles.btn}>خواندن</Text>
+                <Text onPress={() => this.props.navigation.navigate("PDFViewPage" , { uri : selectedPdfUri, id : selectedId, page })} style={styles.btn}>خواندن</Text>
              </View>
          )
     }

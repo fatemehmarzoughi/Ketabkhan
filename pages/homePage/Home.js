@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import styles from './styleHome.css';
@@ -23,6 +23,34 @@ export class Home extends React.Component{
       productsRoman : realm.objects("Books").filtered('categorySubject = 1'),
       showingRomanProducts : [],
 
+      isReadingList : 
+[        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        },
+        {
+          imagePath : 'https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg'
+        }]
     }
     this.state.showingLoveProducts = [...this.state.loveProducts];
     this.state.showingScienceProducts = [...this.state.productsScience];
@@ -60,9 +88,9 @@ export class Home extends React.Component{
                style={styles.popularProducts}
                inverted={true}
                renderItem={({item}) => (
-                 <View style={styles.popularProduct}>
+                 <TouchableOpacity  onPress={() => this.props.navigation.navigate('Product' , {id : item.id, page : "Home" })} style={styles.popularProduct}>
                    <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
-                 </View>
+                 </TouchableOpacity>
                )}
               />
             </SafeAreaView>
@@ -77,14 +105,14 @@ export class Home extends React.Component{
                style={styles.popularProducts}
                inverted={true}
                renderItem={({item}) => (
-                 <View style={styles.popularProduct}>
+                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Product' , {id : item.id , page : "Home"})} style={styles.popularProduct}>
                    <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
-                 </View>
+                 </TouchableOpacity>
                )}
               />
             </SafeAreaView>
           </View>
-          <View style={styles.popularContainer}>
+          <View style={[styles.popularContainer , {paddingBottom : 50}]}>
             <Text style={styles.popularText}>رمان و داستان</Text>
             <SafeAreaView>
               <FlatList 
@@ -94,52 +122,30 @@ export class Home extends React.Component{
                style={styles.popularProducts}
                inverted={true}
                renderItem={({item}) => (
-                 <View style={styles.popularProduct}>
+                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Product' , {id : item.id , page : "Home"})} style={styles.popularProduct}>
                    <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
-                 </View>
+                 </TouchableOpacity>
                )}
               />
             </SafeAreaView>
           </View>
-          {/* <View style={styles.popularContainer}>
-            <Text style={styles.popularText}>عاشقانه</Text>
-            <SafeAreaView>
-              <FlatList 
-               horizontal
-               keyExtractor={(item, index) => index.toString()}
-               data={this.state.FlatListItems}
-               style={styles.popularProducts}
-               showsHorizontalScrollIndicator={false}
-               renderItem={({item}) => (
-                 <View style={styles.popularProduct}>
-                   <Image style={styles.popularImgProduct} source={item.requireImg} />
-                 </View>
-               )}
-              />
-            </SafeAreaView>
-          </View> */}
-          {/* <View style={styles.popularContainer}>
-            <Text style={styles.popularText}>دسته بندی ها</Text>
-            <ScrollView style={styles.categoryContainer} horizontal>
-            <View style={styles.categoryView}>
-              <Icon style={styles.categoryIcon} name="heart" size={35} color='#333' />
-              <Text>عاشقانه</Text>
-            </View>
-            <View style={styles.categoryView}>
-              <Icon style={styles.categoryIcon} name="heart" size={35} color='#333' />
-              <Text>درسی</Text>
-            </View>
-            <View style={styles.categoryView}>
-              <Icon style={styles.categoryIcon} name="heart" size={35} color='#333' />
-              <Text>فلسفی</Text>
-            </View>
-            <View style={styles.categoryView}>
-              <Icon style={styles.categoryIcon} name="heart" size={35} color='#333' />
-              <Text>علمی</Text>
-            </View>
-          </ScrollView>
-          </View> */}
         </ScrollView>
+        <View style={styles.leftSideBar}>
+          <View style={styles.closeIcon}><Icon name="close" size={30} color='#333' /></View>
+          <SafeAreaView style={{paddingBottom : 100}} >
+            <FlatList 
+              data={this.state.showingRomanProducts}
+              keyExtractor={(item, index) => index.toString()}
+              style={{marginTop : 20}}
+              renderItem = {({item}) => (
+                <TouchableOpacity style={styles.item} onPress={() => this.props.navigation.navigate('Product' , {id : item.id , page : 'Home'})}>
+                  <Icon name="close" size={28} color='#333' />
+                  <Image style={styles.readingListItem} source={{uri : item.imagePath}} />
+                </TouchableOpacity>
+              )}
+            />
+          </SafeAreaView >
+        </View >
       </SafeAreaView>
     )
   }

@@ -12,7 +12,7 @@ realm = new Realm ({
       name : 'Books',
       primaryKey : 'id' ,
       properties : {
-        //8 columns
+        //9 columns
         id : 'int',
         name : 'string',
         categoryAge : 'int',
@@ -22,6 +22,7 @@ realm = new Realm ({
         pages : 'int',
         writer : 'string',
         imagePath : 'string',
+        pdfPath : 'string',
       }
     }
   ]
@@ -50,7 +51,8 @@ export class Loadingpage extends React.Component{
     //     writer : 'Jozeph',
     //     isLike : 0,
     //     pages : 80,
-    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover1",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg",
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf1.pdf"
     //   })
     // })
     // realm.write(() => {
@@ -63,7 +65,8 @@ export class Loadingpage extends React.Component{
     //     writer : 'دهخدا',
     //     isLike : 0,
     //     pages : 800,
-    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover2"
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover2.jpg",
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf2.pdf"
     //   })
     // })
     // realm.write(() => {
@@ -76,7 +79,8 @@ export class Loadingpage extends React.Component{
     //     writer : 'خیلی سبز',
     //     isLike : 0,
     //     pages : 700,
-    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover3",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover3.jpg",
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf3.pdf"
     //   })
     // })
     // realm.write(() => {
@@ -89,7 +93,8 @@ export class Loadingpage extends React.Component{
     //     writer : 'دیزنی',
     //     isLike : 0,
     //     pages : 20,
-    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover4",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover4.jpg",
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf4.pdf"
     //   })
     // })
     // realm.write(() => {
@@ -102,7 +107,8 @@ export class Loadingpage extends React.Component{
     //     writer : 'دیزنی',
     //     isLike : 0,
     //     pages : 10,
-    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover5",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover5.jpg",
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf5.pdf"
     //   })
     // })
   }

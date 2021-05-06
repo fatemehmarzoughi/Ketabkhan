@@ -21,6 +21,15 @@
     margin-left : 22;
     color : #E16389;
 }
+.closeIcon{
+    background-color : #FAA5C2;
+    color : 'black';
+    border-radius: 60px;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+}
 .searchContainer {
     position : relative;
     margin : 24px;
@@ -38,15 +47,17 @@
 }
 .popularContainer {
     margin : 24px;
+    margin-bottom: 5px;
     margin-top : 0;
-    padding-bottom: 30px;
 }
 .popularProducts{
     direction: rtl
 }
 .popularText {
     font-size : 16;
-    font-weight: bold
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 .popularProduct {
     margin : 20px;
@@ -55,6 +66,7 @@
 .popularImgProduct{
     width : 100;
     height : 150;
+    border-radius: 5px;
 }
 .categoryView  {
   margin : 30px;
@@ -71,4 +83,31 @@
   margin-top : 0;
   margin-bottom: 10;
   flex-direction : row-reverse
+}
+.leftSideBar {
+    position: absolute;
+    background-color: #fff;
+    border-right-color: #E16389;
+    border-right-width: .8px;
+    border-right-style: solid;
+    border-radius: 10px;
+    height : 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 38px;
+    width: 25%
+}
+.item{
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+
+}
+.readingListItem{
+    height : 55;
+    border-radius : 5px;
+    width : 35;
+    margin : 20px;
+    margin-right: 5px;
 }
