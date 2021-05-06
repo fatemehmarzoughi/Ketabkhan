@@ -1,10 +1,10 @@
 
+1) install the react-native-view-pdf 
 
-2)download pdf View 
+2)make the configuration changes => https://www.npmjs.com/package/react-native-view-pdf 
 
-3)compelete home page => use your own category for home page parts
+3)Store the image url in database
 
-4)Store the image url in database
+4)compelete home page => use your own category for home page parts
 
 5)solve the problem for likes in the product page
-

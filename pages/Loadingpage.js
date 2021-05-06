@@ -50,7 +50,7 @@ export class Loadingpage extends React.Component{
     //     writer : 'Jozeph',
     //     isLike : 0,
     //     pages : 80,
-    //     imagePath : "require('../../images/bookCover1.jpg')",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover1",
     //   })
     // })
     // realm.write(() => {
@@ -63,7 +63,7 @@ export class Loadingpage extends React.Component{
     //     writer : 'دهخدا',
     //     isLike : 0,
     //     pages : 800,
-    //     imagePath : "require('../../images/bookCover2.jpg')"
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover2"
     //   })
     // })
     // realm.write(() => {
@@ -76,7 +76,7 @@ export class Loadingpage extends React.Component{
     //     writer : 'خیلی سبز',
     //     isLike : 0,
     //     pages : 700,
-    //     imagePath : "require('../../images/bookCover3.jpg')",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover3",
     //   })
     // })
     // realm.write(() => {
@@ -89,7 +89,7 @@ export class Loadingpage extends React.Component{
     //     writer : 'دیزنی',
     //     isLike : 0,
     //     pages : 20,
-    //     imagePath : "require('../../images/bookCover4.jpg')",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover4",
     //   })
     // })
     // realm.write(() => {
@@ -102,7 +102,7 @@ export class Loadingpage extends React.Component{
     //     writer : 'دیزنی',
     //     isLike : 0,
     //     pages : 10,
-    //     imagePath : "require('../../images/bookCover5.jpg')",
+    //     imagePath : "https://murmuring-lake-55008.herokuapp.com/bookCover5",
     //   })
     // })
   }

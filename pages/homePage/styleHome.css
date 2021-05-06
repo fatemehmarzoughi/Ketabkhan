@@ -41,6 +41,9 @@
     margin-top : 0;
     padding-bottom: 30px;
 }
+.popularProducts{
+    direction: rtl
+}
 .popularText {
     font-size : 16;
     font-weight: bold

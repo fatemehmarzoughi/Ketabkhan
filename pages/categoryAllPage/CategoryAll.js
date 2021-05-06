@@ -67,7 +67,7 @@ export class CategoryAll extends React.Component{
                   onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategoryAll'})}
                   style={[styles.popularProduct]}>
                    <View style={styles.popularProduct}>
-                     <Image style={styles.popularImgProduct} source={require('../../images/bookCover1.jpg')} />
+                     <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
                      <View>
                         <Text style={styles.title}>{item.name}</Text>
                         <Text style={styles.subTitle}>نویسنده : {item.writer}</Text>

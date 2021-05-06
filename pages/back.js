@@ -11,7 +11,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 
 function Back(props){
 
-    return(<Icon onPress={props.customClick} style={styles.backIcon} name="chevron-left" size={30} color='black' />)
+    return(<Icon onPress={props.customClick} style={styles.backIcon} name="chevron-left" size={30} color='#E16398' />)
     
 }
 

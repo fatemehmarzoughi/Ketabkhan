@@ -23,7 +23,7 @@ export class Product extends React.Component{
           selectedTab1Color : '#7D7D81',
           underLinePosition : new Animated.Value(10),
           likeIcon :  0,
-          dislikeIcon :  0,
+          dislikeIcon :  1,
         }
     }
 
@@ -97,8 +97,6 @@ export class Product extends React.Component{
         }
     }
 
-    
-
     render(){
         
         realm = new Realm({
@@ -127,24 +125,6 @@ export class Product extends React.Component{
         }
 
         let selectedIsLike = this.state.products[selectedId].isLike;
-        const check = () =>
-        {
-            alert('checked')
-            if(selectedIsLike == 1)
-            {
-                this.setState({
-                    likeIcon : 0,
-                    dislikeIcon : 1
-                })
-            }
-            else
-            {
-                this.setState({
-                    likeIcon : 1,
-                    dislikeIcon : 0
-                })
-            }
-        }
 
         // saving founded features in the state of this page
         let selectedAge = this.state.products[selectedId].categoryAge;
@@ -152,12 +132,8 @@ export class Product extends React.Component{
         let selectedWriter = this.state.products[selectedId].writer;
         let selectedSubject = this.state.products[selectedId].categorySubject;
         let selectedPages = this.state.products[selectedId].pages;
-        // let imagePath = require(this.state.products[selectedId].imagePath);
-        console.log(" => "+this.state.products[selectedId].imagePath)
-        let imagePath = this.state.products[selectedId].imagePath;
+        let selectedImagePath =this.state.products[selectedId].imagePath;
         
-        // let likeIcon = '';
-        // let dislikeIcon = '';
         const setLike = () => {
             let selectedIsLike = this.state.products[selectedId].isLike;
             let likeObjectUpdate = realm.objects("Books");
@@ -192,7 +168,7 @@ export class Product extends React.Component{
                     <View style={styles.backGroundBackBtn}>
                        <Back  style={styles.backGroundBackBtn} customClick={() => this.props.navigation.navigate(page)} />
                     </View>
-                    <Image style={styles.img} source={imagePath} />
+                    <Image style={styles.img} source={{uri : selectedImagePath}} />
                  </View>
                  <View style={styles.likeBtn}>
                      <Icon style={[{opacity : this.state.dislikeIcon , position : 'absolute'}]} onPress={() => setLike()} name="heart" size={35} color='#FAA5C2' />

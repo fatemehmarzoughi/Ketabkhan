@@ -3,34 +3,36 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
-import styles from './styleHome.css'
+import styles from './styleHome.css';
+import Realm from 'realm';
 
 export class Home extends React.Component{
+
   constructor(props)
   {
     super(props);
+
     this.state = {
-      FlatListItems : [
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-        {
-          requireImg : require("../../images/bookCover1.jpg"),
-        },
-      ]
+      
+      loveProducts : realm.objects("Books").filtered('categorySubject = 0'),
+      showingLoveProducts : [],
+
+      productsScience : realm.objects("Books").filtered('categorySubject = 2'),
+      showingScienceProducts : [],
+
+      productsRoman : realm.objects("Books").filtered('categorySubject = 1'),
+      showingRomanProducts : [],
+
     }
+    this.state.showingLoveProducts = [...this.state.loveProducts];
+    this.state.showingScienceProducts = [...this.state.productsScience];
+    this.state.showingRomanProducts = [...this.state.productsRoman];
+    realm = new Realm({
+      path : 'Database.realm'
+    })
+    console.log(`showingScienceProducts = ${this.state.showingScienceProducts}`)
+    console.log(`showingLoveProducts = ${this.state.showingLoveProducts}`)
+    console.log(`showingRomanProducts = ${this.state.showingRomanProducts}`)
   }
 
   render(){
@@ -49,57 +51,57 @@ export class Home extends React.Component{
             />
           </View>
           <View style={styles.popularContainer}>
-            <Text style={styles.popularText}>علمی</Text>
+            <Text style={styles.popularText}> علمی</Text>
             <SafeAreaView>
               <FlatList 
                horizontal
                keyExtractor={(item, index) => index.toString()}
-               data={this.state.FlatListItems}
+               data={this.state.showingScienceProducts}
                style={styles.popularProducts}
-               showsHorizontalScrollIndicator={false}
+               inverted={true}
                renderItem={({item}) => (
                  <View style={styles.popularProduct}>
-                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                   <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
                  </View>
                )}
               />
             </SafeAreaView>
           </View>
           <View style={styles.popularContainer}>
-            <Text style={styles.popularText}>فلسفی</Text>
+            <Text style={styles.popularText}>عاشقانه</Text>
             <SafeAreaView>
               <FlatList 
                horizontal
                keyExtractor={(item, index) => index.toString()}
-               data={this.state.FlatListItems}
+               data={this.state.showingLoveProducts}
                style={styles.popularProducts}
-               showsHorizontalScrollIndicator={false}
+               inverted={true}
                renderItem={({item}) => (
                  <View style={styles.popularProduct}>
-                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                   <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
                  </View>
                )}
               />
             </SafeAreaView>
           </View>
           <View style={styles.popularContainer}>
-            <Text style={styles.popularText}>درسی</Text>
+            <Text style={styles.popularText}>رمان و داستان</Text>
             <SafeAreaView>
               <FlatList 
                horizontal
                keyExtractor={(item, index) => index.toString()}
-               data={this.state.FlatListItems}
+               data={this.state.showingRomanProducts}
                style={styles.popularProducts}
-               showsHorizontalScrollIndicator={false}
+               inverted={true}
                renderItem={({item}) => (
                  <View style={styles.popularProduct}>
-                   <Image style={styles.popularImgProduct} source={item.requireImg} />
+                   <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
                  </View>
                )}
               />
             </SafeAreaView>
           </View>
-          <View style={styles.popularContainer}>
+          {/* <View style={styles.popularContainer}>
             <Text style={styles.popularText}>عاشقانه</Text>
             <SafeAreaView>
               <FlatList 
@@ -115,7 +117,7 @@ export class Home extends React.Component{
                )}
               />
             </SafeAreaView>
-          </View>
+          </View> */}
           {/* <View style={styles.popularContainer}>
             <Text style={styles.popularText}>دسته بندی ها</Text>
             <ScrollView style={styles.categoryContainer} horizontal>

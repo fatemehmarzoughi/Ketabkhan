@@ -63,7 +63,8 @@
     flex-direction : row;
     align-items : center;
     justify-content : space-between;
-    margin : 5px;
+    margin-bottom : 5px;
+    margin-top : 5px;
     border-style : solid;
     border-color : #E16398;
     border-width : 1px;

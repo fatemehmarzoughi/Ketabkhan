@@ -5,6 +5,7 @@
     "name": "Ketabkhan",
     "slug": "Ketabkhan",
     "version": "1.0.0",
+    "android.icon" : "./images/iconApp.png",
     "assetBundlePatterns": [
       "**/*"
     ],

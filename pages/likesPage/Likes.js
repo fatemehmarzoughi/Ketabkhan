@@ -83,7 +83,7 @@ export class Likes extends React.Component{
                                 {/* <Text style={styles.explenationB}>قیمت : {item.price} تومان</Text> */}
                             </View>
                             <View style={[styles.leftContent]}>
-                              <Image style={[styles.img]} source={require('../../images/bookCover1.jpg')} />
+                              <Image style={[styles.img]} source={{uri : item.imagePath}} />
                             </View>
                         </View>
                         {/* <Text style={[styles.buyBtn]}>افزودن به سبد خرید</Text> */}
