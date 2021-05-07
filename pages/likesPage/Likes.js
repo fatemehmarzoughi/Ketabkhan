@@ -18,7 +18,9 @@ export class Likes extends React.Component{
         });
         this.state = {
             products : realm.objects("Books").filtered('isLike = 1'),
+            showingProducts : [],
         }
+        this.state.showingProducts = [...this.state.products]
     }
     
     setCategoryAge = (categoryAge) => {
@@ -56,10 +58,13 @@ export class Likes extends React.Component{
         realm.write(() => {
             likeObjectUpdate[selectedId].isLike = 0;
         })
-        this.props.navigation.navigate("Home")
+        this.setState({
+            showingProducts : this.state.products
+        })
     }
 
     render(){
+        this.state.showingProducts = [...this.state.products]
         return(
             <SafeAreaView style={styles.container}>
               <View style={styles.header}>
@@ -68,7 +73,7 @@ export class Likes extends React.Component{
                  <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
               </View>
               <FlatList 
-               data={this.state.products}
+               data={this.state.showingProducts}
                style={styles.productsStyle}
                keyExtractor={(item, index) => index.toString()}
                renderItem = {({item}) => (

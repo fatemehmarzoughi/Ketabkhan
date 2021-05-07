@@ -1,5 +1,6 @@
 .container {
     background-color: #ffff;
+    height: 100%
   }
 .header  {
     align-items : center;
@@ -87,27 +88,26 @@
 .leftSideBar {
     position: absolute;
     background-color: #fff;
-    border-right-color: #E16389;
-    border-right-width: .8px;
-    border-right-style: solid;
-    border-radius: 10px;
+    border-right-color: #e9e9e9;
+    border-right-width: 1px;
+    /* border-right-style: solid; */
+    border-radius: 35px;
     height : 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 38px;
-    width: 25%
+    width: 90px;
 }
 .item{
     align-items: center;
     justify-content: center;
-    flex-direction: row-reverse;
-
+    flex-direction: row-reverse
 }
 .readingListItem{
     height : 55;
     border-radius : 5px;
     width : 35;
     margin : 20px;
-    margin-right: 5px;
+    margin-right: 1px
 }

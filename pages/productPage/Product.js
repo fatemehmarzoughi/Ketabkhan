@@ -8,8 +8,6 @@ import Back from '../back.js'
 import Realm from 'realm';
 import styles from './styleProduct.css';
 
-
-
 export class Product extends React.Component{
     constructor(props){
         realm = new Realm({
@@ -25,6 +23,8 @@ export class Product extends React.Component{
           underLinePosition : new Animated.Value(10),
           likeIcon :  0,
           dislikeIcon :  1,
+          btnOpacity : new Animated.Value(1),
+          btnBottom : new Animated.Value(17),
         }
     }
 
@@ -98,8 +98,116 @@ export class Product extends React.Component{
         }
     }
 
+    addToReadingList = (id) => {
+        const db = realm.objects("Books");
+        if(db[id].isReading == 0)
+        {
+            Animated.timing(this.state.btnBottom , {
+                toValue : 70,
+                duration : 500,
+            }).start();
+            Animated.timing(this.state.btnOpacity , {
+                toValue : 0,
+                delay : 200,
+                duration : 400,
+            }).start();
+            realm.write(() => {
+                db[id].isReading = 1;
+            })
+        }
+        else
+        {
+            Animated.timing(this.state.btnBottom , {
+                toValue : 17,
+                duration : 500,
+            }).start();
+            Animated.timing(this.state.btnOpacity , {
+                toValue : 1,
+                delay : 200,
+                duration : 400,
+            }).start();
+            realm.write(() => {
+                db[id].isReading = 0;
+            })
+        }
+    }
+
+    setLike = (id) => {
+        let selectedIsLike = this.state.products[id].isLike;
+        let likeObjectUpdate = realm.objects("Books");
+        if(selectedIsLike === 1)
+        {
+            realm.write(() => {
+                likeObjectUpdate[id].isLike = 0;
+            })
+            this.setState({
+                likeIcon : 0,
+                dislikeIcon : 1
+            })
+        }
+        else
+        {
+            realm.write(() => {
+               likeObjectUpdate[id].isLike = 1;
+            })
+            this.setState({
+                likeIcon : 1,
+                dislikeIcon : 0
+            })
+        }
+    }
+
+    componentWillReceiveProps(){
+        let length = this.state.products.length;
+        const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
+        let selectedId;
+        for(let i=0 ; i<length ; i++)
+        {
+            if(this.state.products[i].id === id)
+            {
+                selectedId = i;
+                break;
+            }
+            else continue;
+        }
+
+        const db = realm.objects("Books");
+        const isLike = db[selectedId].isLike;
+        const isReading = db[selectedId].isReading;
+
+        if(isLike) 
+        {
+            console.log('islike check status')
+            this.setState({
+                likeIcon : 1,
+                dislikeIcon : 0
+            })
+        }
+        else
+        {
+            this.setState({
+                likeIcon : 0,
+                dislikeIcon : 1
+            })
+        }
+
+        if(isReading) 
+        {
+            console.log('isReading check status')
+            Animated.timing(this.state.btnBottom , {
+                toValue : 17,
+                duration : 500,
+            }).start();
+            Animated.timing(this.state.btnOpacity , {
+                toValue : 1,
+                delay : 200,
+                duration : 400,
+            }).start();
+        }
+    }
+
     render(){
-        
+
         realm = new Realm({
             path : 'Database.realm',
         });
@@ -110,6 +218,8 @@ export class Product extends React.Component{
         //finding out that where this page is comming from
         const page = this.props.navigation.dangerouslyGetState().routes[8].params.page;
 
+        console.log("10 => "+JSON.stringify(this.props.navigation.dangerouslyGetState().routes[10]))
+        console.log("8 => "+JSON.stringify(this.props.navigation.dangerouslyGetState().routes[8]))
         //finding the pruduct's features
         let length = this.state.products.length;
 
@@ -135,33 +245,7 @@ export class Product extends React.Component{
         let selectedPages = this.state.products[selectedId].pages;
         let selectedImagePath =this.state.products[selectedId].imagePath;
         let selectedPdfUri = this.state.products[selectedId].pdfPath;
-        
-        const setLike = () => {
-            let selectedIsLike = this.state.products[selectedId].isLike;
-            let likeObjectUpdate = realm.objects("Books");
-            if(selectedIsLike === 1)
-            {
-                realm.write(() => {
-                    likeObjectUpdate[selectedId].isLike = 0;
-                })
-                this.setState({
-                    likeIcon : 0,
-                    dislikeIcon : 1
-                })
-                alert("disLiked")
-            }
-            else
-            {
-                realm.write(() => {
-                   likeObjectUpdate[selectedId].isLike = 1;
-                })
-                this.setState({
-                    likeIcon : 1,
-                    dislikeIcon : 0
-                })
-                alert("Liked")
-            }
-        }
+
 
          return(
              <View style={styles.container}>
@@ -173,8 +257,8 @@ export class Product extends React.Component{
                     <Image style={styles.img} source={{uri : selectedImagePath}} />
                  </View>
                  <View style={styles.likeBtn}>
-                     <Icon style={[{opacity : this.state.dislikeIcon , position : 'absolute'}]} onPress={() => setLike()} name="heart" size={35} color='#FAA5C2' />
-                     <Icon2 style={[{opacity : this.state.likeIcon , position : 'absolute'}]} onPress={() => setLike()} name="heart" size={30} color='#FAA5C2' />
+                     <Icon style={[{opacity : this.state.dislikeIcon , position : 'absolute'}]} onPress={() => this.setLike(selectedId)} name="heart" size={35} color='#FAA5C2' />
+                     <Icon2 style={[{opacity : this.state.likeIcon , position : 'absolute'}]} onPress={() => this.setLike(selectedId)} name="heart" size={30} color='#FAA5C2' />
                  </View>
                  <Text style={styles.bookName}>{selectedName}</Text>
                  <Text style={styles.bookWriter}>{selectedWriter}</Text>
@@ -202,7 +286,9 @@ export class Product extends React.Component{
                      </View>
                  </Animated.View>
                 </ScrollView>
-                <Text onPress={() => this.props.navigation.navigate("PDFViewPage" , { uri : selectedPdfUri, id : selectedId, page })} style={styles.btn}>خواندن</Text>
+                <Text onPress={() => this.props.navigation.navigate("PDFViewPage" , { uri : selectedPdfUri, id : selectedId, page })} style={styles.readingBtn}>خواندن</Text>
+                <Text onPress={() => this.addToReadingList(selectedId)} style={styles.addToReadingBtn}><Icon name="clock" size={24}  /></Text>
+                <Animated.Text  style={[styles.addToReadingBtnReaction , {bottom : this.state.btnBottom, opacity : this.state.btnOpacity}]}><Icon name="clock" size={24} color={'#E16389'} /></Animated.Text>
              </View>
          )
     }

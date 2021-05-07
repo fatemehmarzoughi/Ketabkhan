@@ -102,14 +102,35 @@
     padding-top : 10;
     padding-bottom : 20;
 }
-.btn {
+.readingBtn {
     padding : 15px;
     /* width : Dimensions.get('window').width; */
-    width : 100%;
+    width : 90%;
     position : absolute;
     bottom : 0;
-    background-color :#E16398;
+    background-color  :#E16389;
     text-align : center;
-    color : #fff;
+    color : #ffffff;
     font-size : 15;
+    right: 0px;
+}
+.addToReadingBtn{
+    width : 10%;
+    background-color: #fff;
+    /* border-top-style: solid; */
+    border-top-width: 1px;
+    border-top-color: #E16389;
+    padding : 15px;
+    position : absolute;
+    bottom : 0;
+    text-align : center;
+    color : #E16389;
+    font-size : 15;
+    z-index: 1;
+}
+.addToReadingBtnReaction{
+    position : absolute;
+    bottom : 17px;
+    opacity: 0;
+    left: 17px;
 }

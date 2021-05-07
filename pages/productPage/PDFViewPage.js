@@ -1,16 +1,22 @@
 import React from 'react';
 import {Text , View , StyleSheet} from 'react-native';
 import PDFView from 'react-native-view-pdf';
+import Realm from 'realm';
 
 export class PDFViewPage extends React.Component{
     constructor(props){
         super(props);
+        realm = new Realm({
+            path : 'Database.realm',
+        })
+        
     }
 
     render(){
-        const url = this.props.navigation.dangerouslyGetState().routes[10].params.uri;
-        const id = this.props.navigation.dangerouslyGetState().routes[10].params.id;
-        const page = this.props.navigation.dangerouslyGetState().routes[10].params.page;
+        const db = realm.objects("Books");
+        const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
+        const url = db[id].pdfPath;
+        const page = this.props.navigation.dangerouslyGetState().routes[8].params.page;
         return(
             <View style={[{flex : 1}]}>
                 <Text style={styles.backstyle} onPress={() => this.props.navigation.navigate('Product' , {id , page})}>  بازگشت </Text>

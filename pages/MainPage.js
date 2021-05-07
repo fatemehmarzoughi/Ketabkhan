@@ -32,7 +32,7 @@ export class MainPage extends React.Component{
 
   render(){
     const HomeScreen = ({navigation}) => {
-      return (<Home navigation={navigation} />)
+      return (<Home navigation={navigation} isFocused={useIsFocused()}/>)
     }
     const CategoryAllScreen = ({navigation}) => {
       return (<CategoryAll navigation={navigation} />)

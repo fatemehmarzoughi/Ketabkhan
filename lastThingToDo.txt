@@ -1,6 +1,6 @@
-1)solve the problem for likes in the product page
+1)make the isReading btn in product page more beautiful
 
-2)activate the bell icon
+2)activate the clock icon for other pages(category pages)
 
 3)activate the home page search input
 

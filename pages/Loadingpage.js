@@ -23,6 +23,7 @@ realm = new Realm ({
         writer : 'string',
         imagePath : 'string',
         pdfPath : 'string',
+        isReading : 'int',
       }
     }
   ]
@@ -52,7 +53,8 @@ export class Loadingpage extends React.Component{
     //     isLike : 0,
     //     pages : 80,
     //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover1.jpg",
-    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf1.pdf"
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf1.pdf",
+    //     isReading : 0,
     //   })
     // })
     // realm.write(() => {
@@ -66,7 +68,8 @@ export class Loadingpage extends React.Component{
     //     isLike : 0,
     //     pages : 800,
     //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover2.jpg",
-    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf2.pdf"
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf2.pdf",
+    //     isReading : 0,
     //   })
     // })
     // realm.write(() => {
@@ -80,7 +83,8 @@ export class Loadingpage extends React.Component{
     //     isLike : 0,
     //     pages : 700,
     //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover3.jpg",
-    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf3.pdf"
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf3.pdf",
+    //     isReading : 0,
     //   })
     // })
     // realm.write(() => {
@@ -94,7 +98,8 @@ export class Loadingpage extends React.Component{
     //     isLike : 0,
     //     pages : 20,
     //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover4.jpg",
-    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf4.pdf"
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf4.pdf",
+    //     isReading : 0,
     //   })
     // })
     // realm.write(() => {
@@ -108,7 +113,8 @@ export class Loadingpage extends React.Component{
     //     isLike : 0,
     //     pages : 10,
     //     imagePath : "https://murmuring-lake-55008.herokuapp.com/images/bookCover5.jpg",
-    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf5.pdf"
+    //     pdfPath : "https://murmuring-lake-55008.herokuapp.com/pdfs/pdf5.pdf",
+    //     isReading : 0,
     //   })
     // })
   }
