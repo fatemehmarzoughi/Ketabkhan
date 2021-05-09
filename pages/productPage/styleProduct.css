@@ -115,10 +115,10 @@
     right: 0px;
 }
 .addToReadingBtn{
-    width : 10%;
+    width : 15%;
     background-color: #fff;
     /* border-top-style: solid; */
-    border-top-width: 1px;
+    border-top-width: 2px;
     border-top-color: #E16389;
     padding : 15px;
     position : absolute;

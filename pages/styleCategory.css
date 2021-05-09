@@ -20,6 +20,8 @@
   .menuIcon {
     margin-right : 22;
     color : #E16389;
+    /* position: absolute; */
+    /* right : 22px */
   }
   .bellIcon {
     margin-left: 22;
@@ -53,7 +55,7 @@
   }
   .popularProducts  {
       margin : 24px;
-      z-index : 34;
+      z-index : -1;
       margin-top : 0;
       margin-bottom : 0;
       /* padding-top : 100; */
@@ -92,3 +94,42 @@
     margin-bottom: 10;
     flex-direction : row-reverse
   }
+  .closeIcon{
+    background-color : #FAA5C2;
+    color : black;
+    border-radius: 60px;
+    height: 40px;
+    width: 40px;
+    z-index: 222;
+    align-items: center;
+    justify-content: center;
+  }
+  .leftSideBar {
+    position: absolute;
+    border-right-color: #e9e9e9;
+    background-color: #fff;
+    /* background-color: black; */
+    border-right-width: 1px;
+    /* border-right-style: solid; */
+    border-radius: 35px;
+    /* height : 100%; */
+    display: flex;
+    top : 0px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 38px;
+    width: 90px;
+    z-index: 1;
+}
+.item{
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse
+}
+.readingListItem{
+    height : 55px;
+    border-radius : 5px;
+    width : 35px;
+    margin : 20px;
+    margin-right: 1px
+}

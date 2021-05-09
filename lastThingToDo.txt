@@ -1,9 +1,2 @@
-1)make the isReading btn in product page more beautiful
-
-2)activate the clock icon for other pages(category pages)
-
-3)activate the home page search input
-
-4)remove the extra folders in pages
 
 5)add at least 50 products to the db

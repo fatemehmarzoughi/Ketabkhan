@@ -4,7 +4,8 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , TouchableWithoutFeedback , Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
-import styles from '../styleCategory.css'
+import styles from '../styleCategory.css';
+import {LeftSideBar} from '../leftSideBar';
 
 export class CategorySubjectLovely extends React.Component{
     constructor(){
@@ -44,11 +45,7 @@ export class CategorySubjectLovely extends React.Component{
     render(){
         return(
             <SafeAreaView style={styles.container}>
-              <View style={styles.header}>
-                <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-                <Text style={styles.title} >عاشقانه-عارفانه</Text>
-                <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
-              </View>
+              <LeftSideBar style={{zIndex : 122}} navigation={this.props.navigation} page='CategorySubjectLovely'/>
               <View style={styles.searchContainer}>
                 <TextInput 
                  style={[styles.searchInput ]}

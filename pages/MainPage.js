@@ -35,25 +35,25 @@ export class MainPage extends React.Component{
       return (<Home navigation={navigation} isFocused={useIsFocused()}/>)
     }
     const CategoryAllScreen = ({navigation}) => {
-      return (<CategoryAll navigation={navigation} />)
+      return (<CategoryAll navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategoryAgeChildrenScreen = ({navigation}) => {
-      return (<CategoryAgeChildren navigation={navigation} />)
+      return (<CategoryAgeChildren navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategoryAgeAdultScreen = ({navigation}) => {
-      return (<CategoryAgeAdult navigation={navigation} />)
+      return (<CategoryAgeAdult navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategoryAgeTeenageScreen = ({navigation}) => {
-      return (<CategoryAgeTeenage navigation={navigation} />)
+      return (<CategoryAgeTeenage navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategorySubjectRomanScreen = ({navigation}) => {
-      return (<CategorySubjectRoman navigation={navigation} />)
+      return (<CategorySubjectRoman navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategorySubjectLovelyScreen = ({navigation}) => {
-      return (<CategorySubjectLovely navigation={navigation} />)
+      return (<CategorySubjectLovely navigation={navigation} isFocused={useIsFocused()} />)
     }
     const CategorySubjectScienceScreen = ({navigation}) => {
-      return (<CategorySubjectScience navigation={navigation} />)
+      return (<CategorySubjectScience navigation={navigation} isFocused={useIsFocused()} />)
     }
     const LikesScreen = ({navigation}) => {
       return (<Likes navigation={navigation} isFocused={useIsFocused()} />)

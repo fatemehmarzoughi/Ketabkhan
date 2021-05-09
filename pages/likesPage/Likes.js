@@ -1,12 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView ,FlatList} from 'react-native';
-import Icon from 'react-native-vector-icons/EvilIcons';
-import { TextInput,  ScrollView } from 'react-native-gesture-handler';
-// import { super } from '@babel/types';
-import { NavigationContainer ,  useIsFocused} from '@react-navigation/native';
+import {Text, View , Image , SafeAreaView ,FlatList} from 'react-native';
 import styles from './styleLikes.css'
 import Realm from 'realm';
+import {LeftSideBar} from '../leftSideBar';
 
 
 export class Likes extends React.Component{
@@ -67,11 +63,7 @@ export class Likes extends React.Component{
         this.state.showingProducts = [...this.state.products]
         return(
             <SafeAreaView style={styles.container}>
-              <View style={styles.header}>
-                 <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
-                 <Text style={styles.headerText}>مورد علاقه های من</Text>
-                 <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-              </View>
+              <LeftSideBar style={{zIndex : 122}} navigation={this.props.navigation} page='Likes'/>
               <FlatList 
                data={this.state.showingProducts}
                style={styles.productsStyle}
@@ -91,7 +83,7 @@ export class Likes extends React.Component{
                               <Image style={[styles.img]} source={{uri : item.imagePath}} />
                             </View>
                         </View>
-                        {/* <Text style={[styles.buyBtn]}>افزودن به سبد خرید</Text> */}
+                        <Text onPress={() => this.props.navigation.navigate('Product' , {id : item.id , page : "Likes"})} style={[styles.btn, styles.buyBtn]}>رفتن به صفحه</Text>
                         <Text onPress={() => this.dislike(item.id)} style={styles.btn}>حذف</Text>
                   </View>
               )}

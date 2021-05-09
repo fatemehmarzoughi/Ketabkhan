@@ -7,6 +7,7 @@ import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import Back from '../back.js'
 import Realm from 'realm';
 import styles from './styleProduct.css';
+// import {styles} from './productStyle';
 
 export class Product extends React.Component{
     constructor(props){
@@ -25,6 +26,7 @@ export class Product extends React.Component{
           dislikeIcon :  1,
           btnOpacity : new Animated.Value(1),
           btnBottom : new Animated.Value(17),
+          checkIconOpacity : 0,
         }
     }
 
@@ -111,6 +113,9 @@ export class Product extends React.Component{
                 delay : 200,
                 duration : 400,
             }).start();
+            this.setState({
+                checkIconOpacity : 1,
+            })
             realm.write(() => {
                 db[id].isReading = 1;
             })
@@ -119,13 +124,15 @@ export class Product extends React.Component{
         {
             Animated.timing(this.state.btnBottom , {
                 toValue : 17,
-                duration : 500,
+                duration : 0,
             }).start();
             Animated.timing(this.state.btnOpacity , {
                 toValue : 1,
-                delay : 200,
-                duration : 400,
+                duration : 0,
             }).start();
+            this.setState({
+                checkIconOpacity : 0,
+            })
             realm.write(() => {
                 db[id].isReading = 0;
             })
@@ -203,6 +210,15 @@ export class Product extends React.Component{
                 delay : 200,
                 duration : 400,
             }).start();
+            this.setState({
+                checkIconOpacity : 1,
+            })
+        }
+        else
+        {
+            this.setState({
+                checkIconOpacity : 0,
+            })
         }
     }
 
@@ -288,7 +304,8 @@ export class Product extends React.Component{
                 </ScrollView>
                 <Text onPress={() => this.props.navigation.navigate("PDFViewPage" , { uri : selectedPdfUri, id : selectedId, page })} style={styles.readingBtn}>خواندن</Text>
                 <Text onPress={() => this.addToReadingList(selectedId)} style={styles.addToReadingBtn}><Icon name="clock" size={24}  /></Text>
-                <Animated.Text  style={[styles.addToReadingBtnReaction , {bottom : this.state.btnBottom, opacity : this.state.btnOpacity}]}><Icon name="clock" size={24} color={'#E16389'} /></Animated.Text>
+                <Text onPress={() => this.addToReadingList(selectedId)} style={[styles.addToReadingBtn , {opacity : this.state.checkIconOpacity}]}><Icon name="check" color={'green'} size={24}  /></Text>
+                <Animated.Text  style={[styles.addToReadingBtnReaction , {bottom : this.state.btnBottom, opacity : this.state.btnOpacity}]}><Icon name="check" size={24} color={'green'} /></Animated.Text>
              </View>
          )
     }

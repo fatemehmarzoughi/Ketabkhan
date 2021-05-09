@@ -5,6 +5,7 @@ import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , TouchableW
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import styles from '../styleCategory.css'
+import {LeftSideBar} from '../leftSideBar';
 
 export class CategoryAll extends React.Component{
     constructor(){
@@ -44,18 +45,13 @@ export class CategoryAll extends React.Component{
     render(){
         return(
             <SafeAreaView style={styles.container}>
-              <View style={styles.header}>
-                <Icon style={styles.bellIcon} name="bell" size={35} color='#333' />
-                <Text style={styles.title} >همه دسته ها</Text>
-                <Icon onPress={() => this.props.navigation.openDrawer()} style={styles.menuIcon} name="navicon" size={35} color='#333' />
-              </View>
+              <LeftSideBar style={{zIndex : 122}} navigation={this.props.navigation} page='CategoryAll'/>
               <View style={styles.searchContainer}>
                 <TextInput 
                  style={[styles.searchInput ]}
                  placeholder = "نام کتاب یا نام نویسنده"
                  onChangeText = {(text) => this.handleChange(text)}
                 />
-                {/* <Icon style={styles.searchIcon} name="search" size={35} color='#333' /> */}
               </View>
               <FlatList 
                data={this.state.showingProducts}
