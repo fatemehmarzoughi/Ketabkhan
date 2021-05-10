@@ -3,7 +3,7 @@ import Realm from 'realm'
 import { StyleSheet, Text, View , Image,Dimensions  , SafeAreaView, TouchableOpacity , Animated} from 'react-native';
 import { TextInput, FlatList, ScrollView ,TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import styles from './styleCategory.css';
+import styles from './categoryPages/styleCategory.css';
 
 export class LeftSideBar extends React.Component{
     constructor(props){

@@ -4,26 +4,24 @@ import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , TouchableWithoutFeedback , Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
-import styles from '../styleCategory.css';
+import styles from './styleCategory.css';
+import {realm} from '../../data/realmConnection';
 import {LeftSideBar} from '../leftSideBar';
 
-export class CategoryAgeAdult extends React.Component{
+export class CategorySubjectLovely extends React.Component{
     constructor(){
-        super();
-        this.state = {
-            ProductScreen : false,
-            thisPageName : 'CategoryAll',
-            selectedId : 0 ,
-            //filtering data for adult category
-            products : realm.objects("Books").filtered('categoryAge = 2'),
-            showingProducts : [],
-          }
-        this.state.showingProducts = [...this.state.products];
-        realm = new Realm({
-          path : 'Database.realm',
-        })
+      super();
+      this.state = {
+        // ProductScreen : false,
+        thisPageName : 'CategoryAll',
+        // selectedId : 0 ,
+        products : realm.objects("Books").filtered('categorySubject = 0'),
+        showingProducts : [],
+      }
+      this.state.showingProducts = [...this.state.products];
     }
 
+    //for searching filtering
     contain = (item, query) => {
       const {name , writer} = item;
       if(name.includes(query) || writer.includes(query))
@@ -45,13 +43,14 @@ export class CategoryAgeAdult extends React.Component{
     render(){
         return(
             <SafeAreaView style={styles.container}>
-              <LeftSideBar style={{zIndex : 122}} navigation={this.props.navigation} page='CategoryAgeAdult'/>
+              <LeftSideBar style={{zIndex : 122}} navigation={this.props.navigation} page='CategorySubjectLovely'/>
               <View style={styles.searchContainer}>
                 <TextInput 
                  style={[styles.searchInput ]}
                  placeholder = "نام کتاب یا نام نویسنده"
                  onChangeText = {(text) => this.handleChange(text)}
                 />
+                {/* <Icon style={styles.searchIcon} name="search" size={35} color='#333' /> */}
               </View>
               <FlatList 
                data={this.state.showingProducts}
@@ -60,7 +59,7 @@ export class CategoryAgeAdult extends React.Component{
                showsVerticalScrollIndicator={false}
                renderItem={({item}) => (
                  <TouchableWithoutFeedback 
-                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategoryAgeAdult'})}
+                  onPress = {() => this.props.navigation.navigate("Product" , {id : item.id , page : 'CategorySubjectLovely'})}
                   style={[styles.popularProduct]}>
                    <View style={styles.popularProduct}>
                      <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />

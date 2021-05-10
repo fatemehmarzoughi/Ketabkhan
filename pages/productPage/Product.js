@@ -6,15 +6,12 @@ import Icon2 from 'react-native-vector-icons/Ionicons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import Back from '../back.js'
 import Realm from 'realm';
+import {realm} from '../../data/realmConnection';
 import styles from './styleProduct.css';
 // import {styles} from './productStyle';
 
 export class Product extends React.Component{
-    constructor(props){
-        realm = new Realm({
-            path : 'Database.realm',
-        });
-        
+    constructor(props){        
         super(props);
         this.state = {
           products :  realm.objects("Books"),
@@ -223,10 +220,6 @@ export class Product extends React.Component{
     }
 
     render(){
-
-        realm = new Realm({
-            path : 'Database.realm',
-        });
         //getting selected product's id from the previouse page 
         // console.log(this.props.navigation.dangerouslyGetState().routes);
         const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;

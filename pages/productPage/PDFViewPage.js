@@ -1,15 +1,11 @@
 import React from 'react';
 import {Text , View , StyleSheet} from 'react-native';
 import PDFView from 'react-native-view-pdf';
-import Realm from 'realm';
+import {realm} from '../../data/realmConnection';
 
 export class PDFViewPage extends React.Component{
     constructor(props){
-        super(props);
-        realm = new Realm({
-            path : 'Database.realm',
-        })
-        
+        super(props);       
     }
 
     render(){

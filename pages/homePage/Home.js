@@ -4,7 +4,7 @@ import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView, TouchableOp
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { TextInput, FlatList, ScrollView, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import styles from './styleHome.css';
-import Realm from 'realm';
+import {realm} from '../../data/realmConnection';
 import {LeftSideBar} from '../leftSideBar';
 
 console.disableYellowBox = true;
@@ -38,10 +38,6 @@ export class Home extends React.Component{
     this.state.showingRomanProducts = [...this.state.productsRoman];
     this.state.showingIsReading = [...this.state.isReadingList];
     this.state.showingProductsChildrenTeenage = [...this.state.productsChildrenTeenage];
-
-    realm = new Realm({
-      path : 'Database.realm'
-    })
   }
 
   render(){

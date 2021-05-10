@@ -1,17 +1,14 @@
 import React from 'react';
 import {Text, View , Image , SafeAreaView ,FlatList} from 'react-native';
 import styles from './styleLikes.css'
-import Realm from 'realm';
 import {LeftSideBar} from '../leftSideBar';
+import {realm} from '../../data/realmConnection';
 
 
 export class Likes extends React.Component{
     
     constructor(){
         super();
-        realm = new Realm({
-            path : 'Database.realm',
-        });
         this.state = {
             products : realm.objects("Books").filtered('isLike = 1'),
             showingProducts : [],

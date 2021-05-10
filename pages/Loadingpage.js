@@ -2,32 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View , Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
-import Realm from 'realm';
 import AnimatedLoader from "react-native-animated-loader";
+import {realm} from '../data/realmConnection';
 
-realm = new Realm ({
-  path:'Database.realm',
-  schema : [
-    {
-      name : 'Books',
-      primaryKey : 'id' ,
-      properties : {
-        //9 columns
-        id : 'int',
-        name : 'string',
-        categoryAge : 'int',
-        categorySubject : 'int',
-        explanationOfTheBook : 'string',
-        isLike : 'int',
-        pages : 'int',
-        writer : 'string',
-        imagePath : 'string',
-        pdfPath : 'string',
-        isReading : 'int',
-      }
-    }
-  ]
-})
 export class Loadingpage extends React.Component{
   constructor()
   {
@@ -36,9 +13,6 @@ export class Loadingpage extends React.Component{
       loading : false,
       visible: true
     }
-    realm = new Realm({
-      path : 'Database.realm',
-    })
 
   //inserting data
 
@@ -118,6 +92,7 @@ export class Loadingpage extends React.Component{
     //   })
     // })
   }
+  
   
   render(){
     const { visible } = this.state;
