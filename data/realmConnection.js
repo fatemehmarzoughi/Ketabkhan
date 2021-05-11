@@ -1,8 +1,7 @@
 import Realm from 'realm';
 
 realm = new Realm ({
-  // path:'Database.realm',
-  path : 'Database.realm',
+  path:'Database.realm',
   schema : [
     {
       name : 'Books',

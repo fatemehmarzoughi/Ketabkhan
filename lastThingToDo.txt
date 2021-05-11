@@ -1,3 +1,1 @@
-1)how to use custome realm file in react native app
-
 2)add at least 50 products to the db

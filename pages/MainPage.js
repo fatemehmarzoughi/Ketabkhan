@@ -19,6 +19,8 @@ import { CategorySubjectScience } from "./categoryPages/CategorySubjectScience.j
 import { Likes } from "./likesPage/Likes";
 import {Product} from './productPage/Product.js';
 import {PDFViewPage} from './productPage/PDFViewPage.js';
+import {realm} from '../data/realmConnection';
+import {writeData} from '../data/write';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -28,6 +30,9 @@ export class MainPage extends React.Component{
     super();
     this.state = {
     }
+    console.log(`realm.objects('Books') = ${realm.objects('Books')[0]}`);
+    if(realm.objects('Books')[0] === undefined)
+      writeData();
   }
 
   render(){
