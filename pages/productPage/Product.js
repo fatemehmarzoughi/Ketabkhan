@@ -1,11 +1,9 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View , Image , Dimensions , SafeAreaView , useParams , Animated} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import Icon2 from 'react-native-vector-icons/Ionicons';
 import { TextInput, FlatList, ScrollView } from 'react-native-gesture-handler';
 import Back from '../back.js'
-import Realm from 'realm';
 import {realm} from '../../data/realmConnection';
 import styles from './styleProduct.css';
 // import {styles} from './productStyle';

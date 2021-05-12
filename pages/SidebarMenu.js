@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import React , { useState } from 'react';
 import { StyleSheet, Text, View , Image , Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
