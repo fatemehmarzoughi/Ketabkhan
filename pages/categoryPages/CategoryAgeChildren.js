@@ -63,7 +63,7 @@ export class CategoryAgeChildren extends React.Component{
                      <Image style={styles.popularImgProduct} source={{uri : item.imagePath}} />
                      <View>
                         <Text style={styles.title}>{item.name}</Text>
-                        <Text style={styles.subTitle}>نویسنده : {item.writer}</Text>
+                        <Text style={styles.subTitle}>{item.writer}</Text>
                      </View>
                    </View>
                  </TouchableWithoutFeedback>

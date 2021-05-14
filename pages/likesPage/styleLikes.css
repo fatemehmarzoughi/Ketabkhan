@@ -22,6 +22,10 @@
     margin-right : 22;
     color : #E16389;
 }
+.rightContent{
+    width: 60%;
+}
+
 .productBox  {
     margin-bottom : 10px;
     /* margin-right: 22px; */

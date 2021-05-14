@@ -39,9 +39,9 @@ export class LeftSideBar extends React.Component{
     }
     
     removeFromReadingList = (id) => {
-        const db = realm.objects("Books");
+        let selectedId = realm.objects("Books").filtered(`id = ${id}`);
         realm.write(() => {
-          db[id].isReading = 0;
+          selectedId[0].isReading = 0;
         })
         this.setState({
           showingIsReading : this.state.isReadingList

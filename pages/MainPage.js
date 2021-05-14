@@ -22,7 +22,6 @@ import {realm} from '../data/realmConnection';
 import {writeData} from '../data/write';
 
 const Drawer = createDrawerNavigator();
-const Stack = createStackNavigator();
 export class MainPage extends React.Component{
   constructor()
   {

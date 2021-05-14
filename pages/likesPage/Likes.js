@@ -46,10 +46,10 @@ export class Likes extends React.Component{
         }
     }
 
-    dislike = (selectedId) => {
-        let likeObjectUpdate = realm.objects("Books");
+    dislike = (id) => {
+        let selectedId = realm.objects("Books").filtered(`id = ${id}`)[0];
         realm.write(() => {
-            likeObjectUpdate[selectedId].isLike = 0;
+            selectedId.isLike = 0;
         })
         this.setState({
             showingProducts : this.state.products
@@ -74,7 +74,6 @@ export class Likes extends React.Component{
                                 <Text style={styles.explenation}>دسته بندی موضوع : {this.setCategorySubject(item.categorySubject)}</Text>
                                 <Text style={styles.explenation}>تعداد صفحات : {item.pages}</Text>
                                 <Text style={styles.explenation}>نویسنده : {item.writer}</Text>
-                                {/* <Text style={styles.explenationB}>قیمت : {item.price} تومان</Text> */}
                             </View>
                             <View style={[styles.leftContent]}>
                               <Image style={[styles.img]} source={{uri : item.imagePath}} />

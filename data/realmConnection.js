@@ -13,6 +13,7 @@ realm = new Realm ({
         categoryAge : 'int',
         categorySubject : 'int',
         explanationOfTheBook : 'string',
+        abstraction : 'string',
         isLike : 'int',
         pages : 'int',
         writer : 'string',

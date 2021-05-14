@@ -96,8 +96,7 @@ export class Product extends React.Component{
     }
 
     addToReadingList = (id) => {
-        const db = realm.objects("Books");
-        if(db[id].isReading == 0)
+        if(id.isReading == 0)
         {
             Animated.timing(this.state.btnBottom , {
                 toValue : 70,
@@ -112,7 +111,7 @@ export class Product extends React.Component{
                 checkIconOpacity : 1,
             })
             realm.write(() => {
-                db[id].isReading = 1;
+                id.isReading = 1;
             })
         }
         else
@@ -129,18 +128,16 @@ export class Product extends React.Component{
                 checkIconOpacity : 0,
             })
             realm.write(() => {
-                db[id].isReading = 0;
+                id.isReading = 0;
             })
         }
     }
 
     setLike = (id) => {
-        let selectedIsLike = this.state.products[id].isLike;
-        let likeObjectUpdate = realm.objects("Books");
-        if(selectedIsLike === 1)
+        if(id.isLike === 1)
         {
             realm.write(() => {
-                likeObjectUpdate[id].isLike = 0;
+                id.isLike = 0;
             })
             this.setState({
                 likeIcon : 0,
@@ -150,7 +147,7 @@ export class Product extends React.Component{
         else
         {
             realm.write(() => {
-               likeObjectUpdate[id].isLike = 1;
+               id.isLike = 1;
             })
             this.setState({
                 likeIcon : 1,
@@ -160,22 +157,11 @@ export class Product extends React.Component{
     }
 
     componentWillReceiveProps(){
-        let length = this.state.products.length;
         const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
-        let selectedId;
-        for(let i=0 ; i<length ; i++)
-        {
-            if(this.state.products[i].id === id)
-            {
-                selectedId = i;
-                break;
-            }
-            else continue;
-        }
+        let selectedId = this.state.products.filtered(`id = ${id}`)[0];        
 
-        const db = realm.objects("Books");
-        const isLike = db[selectedId].isLike;
-        const isReading = db[selectedId].isReading;
+        const isLike = selectedId.isLike;
+        const isReading = selectedId.isReading;
 
         if(isLike) 
         {
@@ -219,7 +205,6 @@ export class Product extends React.Component{
 
     render(){
         //getting selected product's id from the previouse page 
-        // console.log(this.props.navigation.dangerouslyGetState().routes);
         const id = this.props.navigation.dangerouslyGetState().routes[8].params.id;
 
         //finding out that where this page is comming from
@@ -227,32 +212,20 @@ export class Product extends React.Component{
 
         console.log("10 => "+JSON.stringify(this.props.navigation.dangerouslyGetState().routes[10]))
         console.log("8 => "+JSON.stringify(this.props.navigation.dangerouslyGetState().routes[8]))
-        //finding the pruduct's features
-        let length = this.state.products.length;
 
         //doing a search through the Pruducts And find the id of the selected product
-        let selectedId;
-        for(let i=0 ; i<length ; i++)
-        {
-            if(this.state.products[i].id === id)
-            {
-                selectedId = i;
-                break;
-            }
-            else continue;
-        }
-
-        let selectedIsLike = this.state.products[selectedId].isLike;
+        let selectedId = this.state.products.filtered(`id = ${id}`)[0];
 
         // saving founded features in the state of this page
-        let selectedAge = this.state.products[selectedId].categoryAge;
-        let selectedName = this.state.products[selectedId].name;
-        let selectedWriter = this.state.products[selectedId].writer;
-        let selectedSubject = this.state.products[selectedId].categorySubject;
-        let selectedPages = this.state.products[selectedId].pages;
-        let selectedImagePath =this.state.products[selectedId].imagePath;
-        let selectedPdfUri = this.state.products[selectedId].pdfPath;
-
+        let selectedAge = selectedId.categoryAge;
+        let selectedName = selectedId.name;
+        let selectedWriter = selectedId.writer;
+        let selectedSubject = selectedId.categorySubject;
+        let selectedPages = selectedId.pages;
+        let selectedImagePath =selectedId.imagePath;
+        let selectedPdfUri = selectedId.pdfPath;
+        let selectedExplanationOfTheBook = selectedId.explanationOfTheBook;
+        let selectedAbstraction = selectedId.abstraction;
 
          return(
              <View style={styles.container}>
@@ -283,12 +256,12 @@ export class Product extends React.Component{
                  <Animated.View style={[styles.tabsContainer , {transform : [{translateX : this.state.tabNavigating}]}]}>
                      <View style={styles.tabContent}>
                         <View>
-                            <Text style={styles.content}>محتوای دومین تب  که داریم روش کار میکنیم و باید که آنهرا از دیتابیس سیستم دریافت کنیم</Text>
+                            <Text style={styles.content}>{selectedExplanationOfTheBook}</Text>
                         </View>
                      </View>
                      <View style={styles.tabContent}>
                         <View>
-                            <Text style={styles.content}>محتوای اولین تب  که داریم روش کار میکنیم و باید که آنهرا از دیتابیس سیستم دریافت کنیم</Text>
+                            <Text style={styles.content}>{selectedAbstraction}</Text>
                         </View>
                      </View>
                  </Animated.View>
