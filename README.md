@@ -2,8 +2,8 @@
 React native Project
 
 # to run the app
-npm install
-yarn android
+1)npm install
+2)yarn android
 
 ![ketabkhan](https://user-images.githubusercontent.com/48021528/118282062-20744a00-b4e3-11eb-9d92-704d16de6faa.gif)
 
