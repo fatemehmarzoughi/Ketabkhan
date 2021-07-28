@@ -2,10 +2,11 @@
 React native Project
 
 # to run the app
-for Android
+# for Android
 1)yarn install
 2)yarn android
-for ios
+
+# for ios
 1)yarn install
 2)cd ios
 3)pod install
