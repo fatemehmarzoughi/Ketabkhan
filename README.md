@@ -2,8 +2,15 @@
 React native Project
 
 # to run the app
-1)npm install
-2)yarn android/ios
+for Android
+1)yarn install
+2)yarn android
+for ios
+1)yarn install
+2)cd ios
+3)pod install
+4)cd ..
+5)yarn ios
 
 ![ketabkhan](https://user-images.githubusercontent.com/48021528/118282062-20744a00-b4e3-11eb-9d92-704d16de6faa.gif)
 
