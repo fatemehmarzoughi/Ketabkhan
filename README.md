@@ -6,13 +6,6 @@ React native Project
 1)yarn install <br>
 2)yarn android<br><br>
 
-<b>For ios</b><br>
-1)yarn install<br>
-2)cd ios<br>
-3)pod install<br>
-4)cd ../<br>
-5)yarn ios
-
 ![ketabkhan](https://user-images.githubusercontent.com/48021528/118282062-20744a00-b4e3-11eb-9d92-704d16de6faa.gif)
 
 # App ScreenShots
